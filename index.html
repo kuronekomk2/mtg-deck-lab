@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>黄泉還りの輪舞 Ver.2.2</title>
+<style>
+:root{--bg:#0f0c14;--panel:#1d1726;--panel2:#251d30;--line:#443650;--text:#faf7fc;--muted:#bdb1c6;--accent:#c59cff;--ok:#8ce3b3}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI",sans-serif}
+.app{max-width:760px;margin:auto;padding:16px 14px 100px}
+.hero{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.kicker{color:var(--accent);font-weight:800} h1{font-size:25px;margin:8px 0 4px} .sub{color:var(--muted);font-size:14px} .ver{font-size:11px;margin-top:5px}
+.progressrow{display:flex;justify-content:space-between;margin-top:18px;font-weight:700} .bar{height:10px;border:1px solid var(--line);border-radius:999px;margin-top:8px;overflow:hidden;background:#0d0911} .fill{height:100%;width:0;background:linear-gradient(90deg,#8e5bc3,#d35e9e)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-top:12px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0} button{font:inherit}
+.action{min-height:52px;border-radius:16px;border:1px solid var(--line);color:var(--text);font-weight:800;background:var(--panel2);font-size:15px}
+.action.primary{background:linear-gradient(135deg,#8755b5,#b94e8e)}
+h2{font-size:16px;color:var(--muted);margin:22px 4px 12px}
+.list{display:flex;flex-direction:column;gap:9px}
+.card{display:grid;grid-template-columns:42px 48px 1fr;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:10px}
+.check{appearance:none;-webkit-appearance:none;width:28px;height:28px;border:2px solid #82718e;border-radius:9px;background:#100c15;margin:auto}
+.check:checked{background:var(--ok);border-color:var(--ok)} .check:checked:after{content:"✓";display:block;text-align:center;color:#122017;font-size:19px;font-weight:900}
+.priority{width:42px;height:38px;border-radius:11px;border:1px solid var(--line);background:#100c15;color:white;font-size:20px}
+.names{min-width:0} .jp{display:block;font-size:15px;font-weight:800;line-height:1.3} .en{display:block;font-size:12px;color:var(--muted);margin-top:3px;overflow-wrap:anywhere}
+.card.done{opacity:.56} .card.done .jp{text-decoration:line-through}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:white;color:#24172d;padding:11px 16px;border-radius:999px;font-weight:800;display:none;z-index:5}
+.fallback{font-size:12px;color:var(--muted);margin:12px 2px}
+@media(max-width:520px){.actions{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<section class="hero">
+<div class="kicker">📚 MTGデッキ開発室</div>
+<h1>🎭 黄泉還りの輪舞</h1>
+<div class="sub">統率者：虐殺少女 / Massacre Girl</div>
+<div class="sub ver">Ver.2.2・静的100枚表示版</div>
+<div class="progressrow"><span>購入進捗</span><strong id="progressText">0 / 100</strong></div>
+<div class="bar"><div class="fill" id="fill"></div></div>
+<div class="legend"><span>🔥 最優先</span><span>⭐ 通常</span><span>○ 後回し</span></div>
+</section>
+<div class="actions">
+<button class="action primary" id="copyAll" type="button">📋 デッキ全体をコピー</button>
+<button class="action" id="copyMissing" type="button">🛒 未購入だけコピー</button>
+</div>
+<div class="fallback">カード一覧はJavaScriptが動かない表示環境でも、そのまま表示される設計に変更済み。</div>
+<h2>購入チェックリスト</h2>
+<main class="list" id="list">
+<article class="card" data-index="0" data-qty="1" data-en="Massacre Girl" data-section="Commander">
+<input class="check" id="check-0" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-0"><span class="jp">虐殺少女</span><span class="en">Massacre Girl</span></label>
+</article>
+<article class="card" data-index="1" data-qty="1" data-en="Gravecrawler" data-section="Deck">
+<input class="check" id="check-1" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-1"><span class="jp">墓所這い</span><span class="en">Gravecrawler</span></label>
+</article>
+<article class="card" data-index="2" data-qty="1" data-en="Shambling Ghast" data-section="Deck">
+<input class="check" id="check-2" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-2"><span class="jp">よろめく怪異</span><span class="en">Shambling Ghast</span></label>
+</article>
+<article class="card" data-index="3" data-qty="1" data-en="Stitcher&#x27;s Supplier" data-section="Deck">
+<input class="check" id="check-3" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-3"><span class="jp">縫い師への供給者</span><span class="en">Stitcher&#x27;s Supplier</span></label>
+</article>
+<article class="card" data-index="4" data-qty="1" data-en="Viscera Seer" data-section="Deck">
+<input class="check" id="check-4" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-4"><span class="jp">臓物の予見者</span><span class="en">Viscera Seer</span></label>
+</article>
+<article class="card" data-index="5" data-qty="1" data-en="Blood Artist" data-section="Deck">
+<input class="check" id="check-5" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-5"><span class="jp">血の芸術家</span><span class="en">Blood Artist</span></label>
+</article>
+<article class="card" data-index="6" data-qty="1" data-en="Doomed Dissenter" data-section="Deck">
+<input class="check" id="check-6" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-6"><span class="jp">宿命の旅人</span><span class="en">Doomed Dissenter</span></label>
+</article>
+<article class="card" data-index="7" data-qty="1" data-en="Jadar, Ghoulcaller of Nephalia" data-section="Deck">
+<input class="check" id="check-7" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-7"><span class="jp">ネファリアのグール呼び、ジャダー</span><span class="en">Jadar, Ghoulcaller of Nephalia</span></label>
+</article>
+<article class="card" data-index="8" data-qty="1" data-en="Lazotep Reaver" data-section="Deck">
+<input class="check" id="check-8" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-8"><span class="jp">ラゾテプの肉裂き</span><span class="en">Lazotep Reaver</span></label>
+</article>
+<article class="card" data-index="9" data-qty="1" data-en="Mire Triton" data-section="Deck">
+<input class="check" id="check-9" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-9"><span class="jp">ぬかるみのトリトン</span><span class="en">Mire Triton</span></label>
+</article>
+<article class="card" data-index="10" data-qty="1" data-en="Reassembling Skeleton" data-section="Deck">
+<input class="check" id="check-10" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-10"><span class="jp">組み直しの骸骨</span><span class="en">Reassembling Skeleton</span></label>
+</article>
+<article class="card" data-index="11" data-qty="1" data-en="Relentless Dead" data-section="Deck">
+<input class="check" id="check-11" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-11"><span class="jp">執拗な死者</span><span class="en">Relentless Dead</span></label>
+</article>
+<article class="card" data-index="12" data-qty="1" data-en="Ayara, First of Locthwain" data-section="Deck">
+<input class="check" id="check-12" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-12"><span class="jp">ロークスワインの元首、アヤーラ</span><span class="en">Ayara, First of Locthwain</span></label>
+</article>
+<article class="card" data-index="13" data-qty="1" data-en="Midnight Reaper" data-section="Deck">
+<input class="check" id="check-13" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-13"><span class="jp">真夜中の死神</span><span class="en">Midnight Reaper</span></label>
+</article>
+<article class="card" data-index="14" data-qty="1" data-en="Morbid Opportunist" data-section="Deck">
+<input class="check" id="check-14" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-14"><span class="jp">病的な日和見主義者</span><span class="en">Morbid Opportunist</span></label>
+</article>
+<article class="card" data-index="15" data-qty="1" data-en="Ophiomancer" data-section="Deck">
+<input class="check" id="check-15" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-15"><span class="jp">蛇術師</span><span class="en">Ophiomancer</span></label>
+</article>
+<article class="card" data-index="16" data-qty="1" data-en="Pawn of Ulamog" data-section="Deck">
+<input class="check" id="check-16" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-16"><span class="jp">ウラモグの手先</span><span class="en">Pawn of Ulamog</span></label>
+</article>
+<article class="card" data-index="17" data-qty="1" data-en="Plaguecrafter" data-section="Deck">
+<input class="check" id="check-17" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-17"><span class="jp">疫病造り師</span><span class="en">Plaguecrafter</span></label>
+</article>
+<article class="card" data-index="18" data-qty="1" data-en="Oriq Loremage" data-section="Deck">
+<input class="check" id="check-18" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-18"><span class="jp">オリークの伝承魔道士</span><span class="en">Oriq Loremage</span></label>
+</article>
+<article class="card" data-index="19" data-qty="1" data-en="Pitiless Plunderer" data-section="Deck">
+<input class="check" id="check-19" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-19"><span class="jp">無情な略奪者</span><span class="en">Pitiless Plunderer</span></label>
+</article>
+<article class="card" data-index="20" data-qty="1" data-en="Sifter of Skulls" data-section="Deck">
+<input class="check" id="check-20" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-20"><span class="jp">頭蓋ふるい</span><span class="en">Sifter of Skulls</span></label>
+</article>
+<article class="card" data-index="21" data-qty="1" data-en="Yawgmoth, Thran Physician" data-section="Deck">
+<input class="check" id="check-21" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-21"><span class="jp">スランの医師、ヨーグモス</span><span class="en">Yawgmoth, Thran Physician</span></label>
+</article>
+<article class="card" data-index="22" data-qty="1" data-en="Endrek Sahr, Master Breeder" data-section="Deck">
+<input class="check" id="check-22" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-22"><span class="jp">練達の育種師、エンドレク・サール</span><span class="en">Endrek Sahr, Master Breeder</span></label>
+</article>
+<article class="card" data-index="23" data-qty="1" data-en="Gravebreaker Lamia" data-section="Deck">
+<input class="check" id="check-23" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-23"><span class="jp">墓破りのラミア</span><span class="en">Gravebreaker Lamia</span></label>
+</article>
+<article class="card" data-index="24" data-qty="1" data-en="Ogre Slumlord" data-section="Deck">
+<input class="check" id="check-24" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-24"><span class="jp">オーガの貧王</span><span class="en">Ogre Slumlord</span></label>
+</article>
+<article class="card" data-index="25" data-qty="1" data-en="Phyrexian Delver" data-section="Deck">
+<input class="check" id="check-25" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-25"><span class="jp">ファイレクシアの発掘者</span><span class="en">Phyrexian Delver</span></label>
+</article>
+<article class="card" data-index="26" data-qty="1" data-en="Grave Titan" data-section="Deck">
+<input class="check" id="check-26" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-26"><span class="jp">墓所のタイタン</span><span class="en">Grave Titan</span></label>
+</article>
+<article class="card" data-index="27" data-qty="1" data-en="Mikaeus, the Unhallowed" data-section="Deck">
+<input class="check" id="check-27" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-27"><span class="jp">不浄なる者、ミケウス</span><span class="en">Mikaeus, the Unhallowed</span></label>
+</article>
+<article class="card" data-index="28" data-qty="1" data-en="Murderous Rider" data-section="Deck">
+<input class="check" id="check-28" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-28"><span class="jp">残忍な騎士</span><span class="en">Murderous Rider</span></label>
+</article>
+<article class="card" data-index="29" data-qty="1" data-en="Abhorrent Overlord" data-section="Deck">
+<input class="check" id="check-29" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-29"><span class="jp">忌まわしき首領</span><span class="en">Abhorrent Overlord</span></label>
+</article>
+<article class="card" data-index="30" data-qty="1" data-en="Sheoldred, Whispering One" data-section="Deck">
+<input class="check" id="check-30" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-30"><span class="jp">囁く者、シェオルドレッド</span><span class="en">Sheoldred, Whispering One</span></label>
+</article>
+<article class="card" data-index="31" data-qty="1" data-en="Dark Ritual" data-section="Deck">
+<input class="check" id="check-31" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-31"><span class="jp">暗黒の儀式</span><span class="en">Dark Ritual</span></label>
+</article>
+<article class="card" data-index="32" data-qty="1" data-en="Defile" data-section="Deck">
+<input class="check" id="check-32" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-32"><span class="jp">汚涜</span><span class="en">Defile</span></label>
+</article>
+<article class="card" data-index="33" data-qty="1" data-en="Entomb" data-section="Deck">
+<input class="check" id="check-33" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-33"><span class="jp">納墓</span><span class="en">Entomb</span></label>
+</article>
+<article class="card" data-index="34" data-qty="1" data-en="Malakir Rebirth" data-section="Deck">
+<input class="check" id="check-34" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-34"><span class="jp">マラキールの再誕</span><span class="en">Malakir Rebirth</span></label>
+</article>
+<article class="card" data-index="35" data-qty="1" data-en="Go for the Throat" data-section="Deck">
+<input class="check" id="check-35" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-35"><span class="jp">喉首狙い</span><span class="en">Go for the Throat</span></label>
+</article>
+<article class="card" data-index="36" data-qty="1" data-en="Snuff Out" data-section="Deck">
+<input class="check" id="check-36" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-36"><span class="jp">殺し</span><span class="en">Snuff Out</span></label>
+</article>
+<article class="card" data-index="37" data-qty="1" data-en="Profane Tutor" data-section="Deck">
+<input class="check" id="check-37" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-37"><span class="jp">不敬な教示者</span><span class="en">Profane Tutor</span></label>
+</article>
+<article class="card" data-index="38" data-qty="1" data-en="Diabolic Intent" data-section="Deck">
+<input class="check" id="check-38" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-38"><span class="jp">悪魔の意図</span><span class="en">Diabolic Intent</span></label>
+</article>
+<article class="card" data-index="39" data-qty="1" data-en="Feed the Swarm" data-section="Deck">
+<input class="check" id="check-39" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-39"><span class="jp">大群への給餌</span><span class="en">Feed the Swarm</span></label>
+</article>
+<article class="card" data-index="40" data-qty="1" data-en="Agadeem&#x27;s Awakening" data-section="Deck">
+<input class="check" id="check-40" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-40"><span class="jp">アガディームの覚醒</span><span class="en">Agadeem&#x27;s Awakening</span></label>
+</article>
+<article class="card" data-index="41" data-qty="1" data-en="Buried Alive" data-section="Deck">
+<input class="check" id="check-41" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-41"><span class="jp">生き埋め</span><span class="en">Buried Alive</span></label>
+</article>
+<article class="card" data-index="42" data-qty="1" data-en="Read the Bones" data-section="Deck">
+<input class="check" id="check-42" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-42"><span class="jp">骨読み</span><span class="en">Read the Bones</span></label>
+</article>
+<article class="card" data-index="43" data-qty="1" data-en="Victimize" data-section="Deck">
+<input class="check" id="check-43" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-43"><span class="jp">犠牲</span><span class="en">Victimize</span></label>
+</article>
+<article class="card" data-index="44" data-qty="1" data-en="Final Parting" data-section="Deck">
+<input class="check" id="check-44" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-44"><span class="jp">最後の別れ</span><span class="en">Final Parting</span></label>
+</article>
+<article class="card" data-index="45" data-qty="1" data-en="Living Death" data-section="Deck">
+<input class="check" id="check-45" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-45"><span class="jp">生ける屍</span><span class="en">Living Death</span></label>
+</article>
+<article class="card" data-index="46" data-qty="1" data-en="Army of the Damned" data-section="Deck">
+<input class="check" id="check-46" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-46"><span class="jp">忌むべき者の軍団</span><span class="en">Army of the Damned</span></label>
+</article>
+<article class="card" data-index="47" data-qty="1" data-en="Phyrexian Reclamation" data-section="Deck">
+<input class="check" id="check-47" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-47"><span class="jp">ファイレクシア流再利用</span><span class="en">Phyrexian Reclamation</span></label>
+</article>
+<article class="card" data-index="48" data-qty="1" data-en="Tortured Existence" data-section="Deck">
+<input class="check" id="check-48" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-48"><span class="jp">拷問生活</span><span class="en">Tortured Existence</span></label>
+</article>
+<article class="card" data-index="49" data-qty="1" data-en="Animate Dead" data-section="Deck">
+<input class="check" id="check-49" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-49"><span class="jp">動く死体</span><span class="en">Animate Dead</span></label>
+</article>
+<article class="card" data-index="50" data-qty="1" data-en="Bitterblossom" data-section="Deck">
+<input class="check" id="check-50" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-50"><span class="jp">苦花</span><span class="en">Bitterblossom</span></label>
+</article>
+<article class="card" data-index="51" data-qty="1" data-en="Call the Bloodline" data-section="Deck">
+<input class="check" id="check-51" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-51"><span class="jp">血統の呼び出し</span><span class="en">Call the Bloodline</span></label>
+</article>
+<article class="card" data-index="52" data-qty="1" data-en="Dreadhorde Invasion" data-section="Deck">
+<input class="check" id="check-52" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-52"><span class="jp">戦慄衆の侵略</span><span class="en">Dreadhorde Invasion</span></label>
+</article>
+<article class="card" data-index="53" data-qty="1" data-en="Oversold Cemetery" data-section="Deck">
+<input class="check" id="check-53" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-53"><span class="jp">定員過剰の墓地</span><span class="en">Oversold Cemetery</span></label>
+</article>
+<article class="card" data-index="54" data-qty="1" data-en="Zombie Infestation" data-section="Deck">
+<input class="check" id="check-54" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-54"><span class="jp">ゾンビの横行</span><span class="en">Zombie Infestation</span></label>
+</article>
+<article class="card" data-index="55" data-qty="1" data-en="Phyrexian Arena" data-section="Deck">
+<input class="check" id="check-55" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-55"><span class="jp">ファイレクシアの闘技場</span><span class="en">Phyrexian Arena</span></label>
+</article>
+<article class="card" data-index="56" data-qty="1" data-en="Grave Pact" data-section="Deck">
+<input class="check" id="check-56" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-56"><span class="jp">墓穴までの契約</span><span class="en">Grave Pact</span></label>
+</article>
+<article class="card" data-index="57" data-qty="1" data-en="Black Market" data-section="Deck">
+<input class="check" id="check-57" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-57"><span class="jp">闇市場</span><span class="en">Black Market</span></label>
+</article>
+<article class="card" data-index="58" data-qty="1" data-en="Dictate of Erebos" data-section="Deck">
+<input class="check" id="check-58" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-58"><span class="jp">エレボスの指図</span><span class="en">Dictate of Erebos</span></label>
+</article>
+<article class="card" data-index="59" data-qty="1" data-en="Skullclamp" data-section="Deck">
+<input class="check" id="check-59" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-59"><span class="jp">頭蓋骨絞め</span><span class="en">Skullclamp</span></label>
+</article>
+<article class="card" data-index="60" data-qty="1" data-en="Sol Ring" data-section="Deck">
+<input class="check" id="check-60" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-60"><span class="jp">太陽の指輪</span><span class="en">Sol Ring</span></label>
+</article>
+<article class="card" data-index="61" data-qty="1" data-en="Altar of Dementia" data-section="Deck">
+<input class="check" id="check-61" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-61"><span class="jp">狂気の祭壇</span><span class="en">Altar of Dementia</span></label>
+</article>
+<article class="card" data-index="62" data-qty="1" data-en="Arcane Signet" data-section="Deck">
+<input class="check" id="check-62" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-62"><span class="jp">秘儀の印鑑</span><span class="en">Arcane Signet</span></label>
+</article>
+<article class="card" data-index="63" data-qty="1" data-en="Ashnod&#x27;s Altar" data-section="Deck">
+<input class="check" id="check-63" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-63"><span class="jp">アシュノッドの供犠台</span><span class="en">Ashnod&#x27;s Altar</span></label>
+</article>
+<article class="card" data-index="64" data-qty="1" data-en="Phyrexian Altar" data-section="Deck">
+<input class="check" id="check-64" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-64"><span class="jp">ファイレクシアの供犠台</span><span class="en">Phyrexian Altar</span></label>
+</article>
+<article class="card" data-index="65" data-qty="1" data-en="Liliana, Dreadhorde General" data-section="Deck">
+<input class="check" id="check-65" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-65"><span class="jp">戦慄衆の将軍、リリアナ</span><span class="en">Liliana, Dreadhorde General</span></label>
+</article>
+<article class="card" data-index="66" data-qty="1" data-en="Bojuka Bog" data-section="Deck">
+<input class="check" id="check-66" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-66"><span class="jp">ボジューカの沼</span><span class="en">Bojuka Bog</span></label>
+</article>
+<article class="card" data-index="67" data-qty="1" data-en="Cabal Coffers" data-section="Deck">
+<input class="check" id="check-67" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-67"><span class="jp">陰謀団の貴重品室</span><span class="en">Cabal Coffers</span></label>
+</article>
+<article class="card" data-index="68" data-qty="1" data-en="Castle Locthwain" data-section="Deck">
+<input class="check" id="check-68" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-68"><span class="jp">ロークスワイン城</span><span class="en">Castle Locthwain</span></label>
+</article>
+<article class="card" data-index="69" data-qty="1" data-en="High Market" data-section="Deck">
+<input class="check" id="check-69" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-69"><span class="jp">高級市場</span><span class="en">High Market</span></label>
+</article>
+<article class="card" data-index="70" data-qty="1" data-en="Phyrexian Tower" data-section="Deck">
+<input class="check" id="check-70" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-70"><span class="jp">ファイレクシアの塔</span><span class="en">Phyrexian Tower</span></label>
+</article>
+<article class="card" data-index="71" data-qty="24" data-en="Swamp" data-section="Deck">
+<input class="check" id="check-71" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-71"><span class="jp">24枚 沼</span><span class="en">Swamp</span></label>
+</article>
+<article class="card" data-index="72" data-qty="1" data-en="Takenuma, Abandoned Mire" data-section="Deck">
+<input class="check" id="check-72" type="checkbox">
+<button class="priority" type="button" data-priority="1" aria-label="優先度を変更">⭐</button>
+<label class="names" for="check-72"><span class="jp">見捨てられたぬかるみ、竹沼</span><span class="en">Takenuma, Abandoned Mire</span></label>
+</article>
+<article class="card" data-index="73" data-qty="1" data-en="Urborg, Tomb of Yawgmoth" data-section="Deck">
+<input class="check" id="check-73" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-73"><span class="jp">ヨーグモスの墳墓、アーボーグ</span><span class="en">Urborg, Tomb of Yawgmoth</span></label>
+</article>
+<article class="card" data-index="74" data-qty="1" data-en="Volrath&#x27;s Stronghold" data-section="Deck">
+<input class="check" id="check-74" type="checkbox">
+<button class="priority" type="button" data-priority="0" aria-label="優先度を変更">🔥</button>
+<label class="names" for="check-74"><span class="jp">ヴォルラスの要塞</span><span class="en">Volrath&#x27;s Stronghold</span></label>
+</article>
+<article class="card" data-index="75" data-qty="1" data-en="War Room" data-section="Deck">
+<input class="check" id="check-75" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-75"><span class="jp">作戦室</span><span class="en">War Room</span></label>
+</article>
+<article class="card" data-index="76" data-qty="1" data-en="Westvale Abbey" data-section="Deck">
+<input class="check" id="check-76" type="checkbox">
+<button class="priority" type="button" data-priority="2" aria-label="優先度を変更">○</button>
+<label class="names" for="check-76"><span class="jp">ウェストヴェイルの修道院</span><span class="en">Westvale Abbey</span></label>
+</article>
+</main>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<textarea id="copyBuffer" style="position:fixed;left:-9999px;top:-9999px"></textarea>
+<script>
+(function(){
+"use strict";
+var KEY="yomigaeri_v22_state";
+var cards=document.getElementsByClassName("card");
+var icons=["🔥","⭐","○"];
+
+function safeLoad(){
+  try{return JSON.parse(window.localStorage.getItem(KEY)||"{}");}catch(e){return {};}
+}
+function safeSave(data){
+  try{window.localStorage.setItem(KEY,JSON.stringify(data));}catch(e){}
+}
+var state=safeLoad();
+
+function update(){
+  var bought=0,total=0,i,card,check,priority;
+  for(i=0;i<cards.length;i++){
+    card=cards[i]; check=card.getElementsByClassName("check")[0]; priority=card.getElementsByClassName("priority")[0];
+    total+=parseInt(card.getAttribute("data-qty"),10)||1;
+    if(state[i]){
+      check.checked=!!state[i].done;
+      priority.setAttribute("data-priority",String(state[i].priority==null?parseInt(priority.getAttribute("data-priority"),10):state[i].priority));
+    }
+    priority.textContent=icons[parseInt(priority.getAttribute("data-priority"),10)||0];
+    if(check.checked){bought+=parseInt(card.getAttribute("data-qty"),10)||1;card.className="card done";}
+    else{card.className="card";}
+  }
+  document.getElementById("progressText").textContent=bought+" / "+total;
+  document.getElementById("fill").style.width=(total?Math.round(bought*100/total):0)+"%";
+}
+
+function remember(index){
+  var card=cards[index],check=card.getElementsByClassName("check")[0],priority=card.getElementsByClassName("priority")[0];
+  state[index]={done:check.checked,priority:parseInt(priority.getAttribute("data-priority"),10)||0};
+  safeSave(state); update();
+}
+
+function showToast(message){
+  var t=document.getElementById("toast");t.textContent=message;t.style.display="block";
+  window.setTimeout(function(){t.style.display="none";},1600);
+}
+
+function copyText(text,message){
+  var b=document.getElementById("copyBuffer");b.value=text;b.focus();b.select();
+  try{document.execCommand("copy");showToast(message);}
+  catch(e){window.prompt("このテキストをコピーしてください",text);}
+}
+
+function makeMissing(){
+  var out=[],i,card,check;
+  for(i=0;i<cards.length;i++){
+    card=cards[i];check=card.getElementsByClassName("check")[0];
+    if(!check.checked)out.push(card.getAttribute("data-qty")+" "+card.getAttribute("data-en"));
+  }
+  return out.join("\n");
+}
+
+for(var i=0;i<cards.length;i++){
+  (function(index){
+    var check=cards[index].getElementsByClassName("check")[0];
+    var priority=cards[index].getElementsByClassName("priority")[0];
+    check.addEventListener("change",function(){remember(index);},false);
+    priority.addEventListener("click",function(){
+      var p=(parseInt(priority.getAttribute("data-priority"),10)+1)%3;
+      priority.setAttribute("data-priority",String(p));remember(index);
+    },false);
+  })(i);
+}
+document.getElementById("copyAll").addEventListener("click",function(){copyText("Commander\n1 Massacre Girl\n\nDeck\n1 Gravecrawler\n1 Shambling Ghast\n1 Stitcher's Supplier\n1 Viscera Seer\n1 Blood Artist\n1 Doomed Dissenter\n1 Jadar, Ghoulcaller of Nephalia\n1 Lazotep Reaver\n1 Mire Triton\n1 Reassembling Skeleton\n1 Relentless Dead\n1 Ayara, First of Locthwain\n1 Midnight Reaper\n1 Morbid Opportunist\n1 Ophiomancer\n1 Pawn of Ulamog\n1 Plaguecrafter\n1 Oriq Loremage\n1 Pitiless Plunderer\n1 Sifter of Skulls\n1 Yawgmoth, Thran Physician\n1 Endrek Sahr, Master Breeder\n1 Gravebreaker Lamia\n1 Ogre Slumlord\n1 Phyrexian Delver\n1 Grave Titan\n1 Mikaeus, the Unhallowed\n1 Murderous Rider\n1 Abhorrent Overlord\n1 Sheoldred, Whispering One\n1 Dark Ritual\n1 Defile\n1 Entomb\n1 Malakir Rebirth\n1 Go for the Throat\n1 Snuff Out\n1 Profane Tutor\n1 Diabolic Intent\n1 Feed the Swarm\n1 Agadeem's Awakening\n1 Buried Alive\n1 Read the Bones\n1 Victimize\n1 Final Parting\n1 Living Death\n1 Army of the Damned\n1 Phyrexian Reclamation\n1 Tortured Existence\n1 Animate Dead\n1 Bitterblossom\n1 Call the Bloodline\n1 Dreadhorde Invasion\n1 Oversold Cemetery\n1 Zombie Infestation\n1 Phyrexian Arena\n1 Grave Pact\n1 Black Market\n1 Dictate of Erebos\n1 Skullclamp\n1 Sol Ring\n1 Altar of Dementia\n1 Arcane Signet\n1 Ashnod's Altar\n1 Phyrexian Altar\n1 Liliana, Dreadhorde General\n1 Bojuka Bog\n1 Cabal Coffers\n1 Castle Locthwain\n1 High Market\n1 Phyrexian Tower\n24 Swamp\n1 Takenuma, Abandoned Mire\n1 Urborg, Tomb of Yawgmoth\n1 Volrath's Stronghold\n1 War Room\n1 Westvale Abbey","デッキ全体をコピーしました");},false);
+document.getElementById("copyMissing").addEventListener("click",function(){
+  var text=makeMissing();if(text)copyText(text,"未購入カードをコピーしました");else showToast("未購入カードはありません");
+},false);
+update();
+})();
+</script>
+</body>
+</html>
