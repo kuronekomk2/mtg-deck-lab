@@ -77,10 +77,36 @@ h2{font-size:16px;color:var(--muted);margin:22px 4px 12px}
  .kanade-guide img{width:108px;height:140px}
  .kanade-bubble{font-size:13px}
 }
+
+/* Ver.3.7 common deck-page foundation */
+.mode-switch{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 18px;padding:6px;border:1px solid var(--line);border-radius:17px;background:rgba(10,8,14,.55)}
+.mode-tab{min-height:46px;border:0;border-radius:12px;background:transparent;color:var(--muted);font-weight:900;font-size:14px;cursor:pointer}
+.mode-tab.active{color:var(--text);background:var(--panel2);box-shadow:0 5px 16px rgba(0,0,0,.22)}
+.mode-panel{display:none}.mode-panel.active{display:block}
+.growth-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 18px}
+.growth-card{padding:15px;border:1px solid var(--line);border-radius:17px;background:var(--panel)}
+.growth-card.wide{grid-column:1/-1}
+.growth-label{font-size:11px;color:var(--accent);font-weight:900;margin-bottom:6px}
+.growth-title{font-size:15px;font-weight:900;line-height:1.45}
+.growth-text{font-size:12px;color:var(--muted);line-height:1.65;margin-top:5px}
+.growth-memo{width:100%;min-height:115px;border:1px solid var(--line);border-radius:14px;background:rgba(8,7,12,.55);color:var(--text);padding:12px;resize:vertical;line-height:1.6}
+.growth-save{width:100%;min-height:45px;margin-top:9px;border:0;border-radius:13px;background:var(--panel2);color:var(--text);font-weight:900}
+.growth-saved{min-height:18px;margin-top:7px;text-align:center;color:var(--ok,#92e6b4);font-size:12px}
+.empty-stage{padding:20px 16px;border:1px dashed var(--line);border-radius:17px;background:rgba(255,255,255,.025);text-align:center}
+.empty-stage strong{display:block;font-size:15px;margin-bottom:6px}.empty-stage span{font-size:12px;color:var(--muted);line-height:1.65}
+.upgrade-form{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.upgrade-input{width:100%;min-height:46px;border:1px solid var(--line);border-radius:13px;background:rgba(8,7,12,.55);color:var(--text);padding:0 12px}
+.upgrade-add{grid-column:1/-1;min-height:46px;border:0;border-radius:13px;background:var(--panel2);color:var(--text);font-weight:900}
+.upgrade-list{display:flex;flex-direction:column;gap:9px;margin-top:12px}
+.upgrade-item{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:15px;background:var(--panel)}
+.upgrade-pair{font-size:13px;font-weight:850;line-height:1.55}.upgrade-pair small{display:block;color:var(--muted);font-weight:700}
+.upgrade-status{border:1px solid var(--line);border-radius:999px;background:rgba(8,7,12,.55);color:var(--text);padding:7px 10px;font-size:11px;font-weight:900}
+@media(max-width:520px){.growth-grid,.upgrade-form{grid-template-columns:1fr}.growth-card.wide,.upgrade-add{grid-column:auto}}
+
 </style>
 </head>
 <body>
-<div class="app">
+<div class="app" data-deck-id="shuudoku" data-default-mode="shop">
 <a class="home-link" href="index.html">‹ デッキ選択へ戻る</a>
 
 <section class="hero">
@@ -88,12 +114,26 @@ h2{font-size:16px;color:var(--muted);margin:22px 4px 12px}
   <h1>終毒の臨界</h1>
   <div class="sub">統率者：屍の王、ヴィシュグラズ / Vishgraz, the Doomhive</div>
   <div class="sub">毒カウンターを置き、増殖で勝利への臨界点を越える。</div>
-  <div class="sub ver">Ver.3.3・共通デッキページ基盤</div>
+  <div class="sub ver">Ver.3.7・共通デッキページ基盤</div>
   <div class="progressrow"><span>購入進捗</span><strong id="progressText">0 / 100</strong></div>
   <div class="bar"><div class="fill" id="fill"></div></div>
   <div class="legend"><span>🔥 最優先</span><span>⭐ 通常</span><span>○ 後回し</span></div>
 </section>
-
+<nav class="mode-switch" aria-label="デッキページのモード切替">
+  <button class="mode-tab" type="button" data-mode="growth" aria-selected="false">🌱 育成モード</button>
+  <button class="mode-tab" type="button" data-mode="shop" aria-selected="false">🛒 ショップモード</button>
+</nav>
+<section class="mode-panel" data-panel="growth">
+  <div class="growth-grid">
+    <article class="growth-card wide"><div class="growth-label">DECK OVERVIEW</div><div class="growth-title">毒を一度通し、増殖で臨界点まで押し切る統率者デッキ。</div><div class="growth-text">感染・毒性で起点を作り、増殖とサーチで毒カウンター10個へ最短距離を進む。</div></article>
+    <article class="growth-card"><div class="growth-label">現在の段階</div><div class="growth-title">カード収集中</div><div class="growth-text">購入状況と実戦経験に合わせて、この表示も育てていく予定。</div></article>
+    <article class="growth-card"><div class="growth-label">このデッキらしさ</div><div class="growth-title">勝ち筋は最後まで毒</div><div class="growth-text">強さだけでなく、デッキの物語と役割を残すための基準。</div></article>
+    <article class="growth-card wide"><div class="growth-label">デッキメモ</div><textarea class="growth-memo" data-growth-memo placeholder="採用候補、気になった動き、次に試したいことを書いておこう。"></textarea><button class="growth-save" data-growth-save type="button">メモを保存</button><div class="growth-saved" data-growth-saved></div></article>
+    <article class="growth-card"><div class="growth-label">調整履歴</div><div class="empty-stage"><strong>次のアップデートで開放</strong><span>IN／OUTと変更理由を残せるようにする予定。</span></div></article>
+    <article class="growth-card"><div class="growth-label">対戦記録・MVP</div><div class="empty-stage"><strong>実戦後に育つ場所</strong><span>勝敗、印象的だったカード、次の課題を記録する予定。</span></div></article>
+  </div>
+</section>
+<section class="mode-panel" data-panel="shop">
 <section class="kanade-guide" aria-live="polite">
   <img id="deckKanadeImage" src="kanade_shopping.png" alt="宙星かなで">
   <div class="kanade-guide-text">
@@ -868,6 +908,7 @@ h2{font-size:16px;color:var(--muted);margin:22px 4px 12px}
 </label>
 </article>
 </main>
+</section>
 </div>
 <div class="toast" id="toast">コピーしました</div>
 
@@ -990,5 +1031,43 @@ document.getElementById("copyMissing").addEventListener("click",function(){copyT
 update();
 })();
 </script>
+
+<script>
+(function(){
+  "use strict";
+  var root=document.querySelector(".app");
+  if(!root)return;
+  var deckId=root.getAttribute("data-deck-id")||"deck";
+  var defaultMode=root.getAttribute("data-default-mode")||"growth";
+  var modeKey="mtg-deck-lab-mode-"+deckId;
+  var tabs=[].slice.call(document.querySelectorAll(".mode-tab"));
+  var panels=[].slice.call(document.querySelectorAll(".mode-panel"));
+  function setMode(mode){
+    tabs.forEach(function(tab){
+      var active=tab.getAttribute("data-mode")===mode;
+      tab.classList.toggle("active",active);
+      tab.setAttribute("aria-selected",String(active));
+    });
+    panels.forEach(function(panel){panel.classList.toggle("active",panel.getAttribute("data-panel")===mode);});
+    try{localStorage.setItem(modeKey,mode);}catch(e){}
+  }
+  tabs.forEach(function(tab){tab.addEventListener("click",function(){setMode(tab.getAttribute("data-mode"));});});
+  var initial=defaultMode;
+  try{initial=localStorage.getItem(modeKey)||defaultMode;}catch(e){}
+  if(initial!=="growth"&&initial!=="shop")initial=defaultMode;
+  setMode(initial);
+
+  var memo=document.querySelector("[data-growth-memo]");
+  var save=document.querySelector("[data-growth-save]");
+  var saved=document.querySelector("[data-growth-saved]");
+  var memoKey="mtg-deck-lab-growth-memo-"+deckId;
+  if(memo){try{memo.value=localStorage.getItem(memoKey)||"";}catch(e){}}
+  if(save&&memo){save.addEventListener("click",function(){
+    try{localStorage.setItem(memoKey,memo.value);}catch(e){}
+    if(saved){saved.textContent="保存しました";setTimeout(function(){saved.textContent="";},1400);}
+  });}
+})();
+</script>
+
 </body>
 </html>
