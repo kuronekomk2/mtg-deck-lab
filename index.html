@@ -105,7 +105,7 @@ h1{font-size:28px;margin:7px 0 6px}
     <div class="kicker">📚 KŪ-CHAN'S MTG TOOL</div>
     <h1>MTGデッキ開発室</h1>
     <p>デッキは完成させるものじゃない。<br>実際に遊びながら、一緒に育てていくもの。</p>
-    <span class="version">Ver.3.1.1・かなで表示調整</span>
+    <span class="version">Ver.3.2・時間帯＆デッキ反応</span>
   </header>
 
   <section class="kanade-area" aria-live="polite">
@@ -153,34 +153,70 @@ h1{font-size:28px;margin:7px 0 6px}
 <script>
 (function(){
   "use strict";
-  var conversations=[
-    {image:"kanade_normal.png",text:"「くーちゃん、今日はどのデッキ育てる？」"},
-    {image:"kanade_normal.png",text:"「焦らず一枚ずつ、このデッキらしく育ててこ！」"},
-    {image:"kanade_happy.png",text:"「開発室へおかえり！ 今日もMTGしよー！」"},
-    {image:"kanade_happy.png",text:"「新しいアイデア、なんか降りてきそうじゃない？」"},
-    {image:"kanade_thinking.png",text:"「次に見直すなら、土地？ドロー？それとも勝ち筋かな？」"},
-    {image:"kanade_thinking.png",text:"「強いだけじゃなくて、“このデッキらしい”も大事だよね。」"},
-    {image:"kanade_shopping.png",text:"「カードショップ行くなら、購入リストも確認しとこ！」"},
-    {image:"kanade_success.png",text:"「Ver.3.1へアップデート！ ここからもっと育つよ！」"}
-  ];
-  var last=-1;
-  var image=document.getElementById("kanadeImage");
-  var message=document.getElementById("kanadeMessage");
+
+  var homeMessages = {
+    morning: [
+      {image:"kanade_normal.png", text:"「おはよ、くーちゃん！ 朝の一枚、考えてこっか！」"},
+      {image:"kanade_happy.png", text:"「朝からMTGとか、最高じゃん！」"},
+      {image:"kanade_thinking.png", text:"「今日はどのデッキから見直す？」"}
+    ],
+    afternoon: [
+      {image:"kanade_normal.png", text:"「くーちゃん、今日はどのデッキ育てる？」"},
+      {image:"kanade_happy.png", text:"「開発室へおかえり！ 今日もMTGしよー！」"},
+      {image:"kanade_shopping.png", text:"「カードショップ行くなら、購入リストも確認しとこ！」"},
+      {image:"kanade_thinking.png", text:"「次に見直すなら、土地？ドロー？それとも勝ち筋かな？」"}
+    ],
+    evening: [
+      {image:"kanade_happy.png", text:"「おつかれ、くーちゃん！ 夜はゆっくりデッキ会議しよ！」"},
+      {image:"kanade_normal.png", text:"「今日の最後に、一枚だけでも見直してこっか。」"},
+      {image:"kanade_thinking.png", text:"「夜って、妙に面白い構築案が浮かぶよね。」"}
+    ],
+    lateNight: [
+      {image:"kanade_thinking.png", text:"「夜更かしデッキ開発会、開幕しちゃう？」"},
+      {image:"kanade_normal.png", text:"「無理しすぎないでね。続きは明日でも大丈夫！」"},
+      {image:"kanade_happy.png", text:"「深夜テンションの神アイデア、来るかも！」"}
+    ],
+    common: [
+      {image:"kanade_normal.png", text:"「焦らず一枚ずつ、このデッキらしく育ててこ！」"},
+      {image:"kanade_happy.png", text:"「新しいアイデア、なんか降りてきそうじゃない？」"},
+      {image:"kanade_thinking.png", text:"「強いだけじゃなくて、“このデッキらしい”も大事だよね。」"},
+      {image:"kanade_success.png", text:"「Ver.3.2へアップデート！ かなで、ちょっと賢くなったかも！」"}
+    ]
+  };
+
+  var last = -1;
+  var image = document.getElementById("kanadeImage");
+  var message = document.getElementById("kanadeMessage");
+
+  function getPeriod(){
+    var hour = new Date().getHours();
+    if(hour >= 5 && hour < 11) return "morning";
+    if(hour >= 11 && hour < 18) return "afternoon";
+    if(hour >= 18 && hour < 24) return "evening";
+    return "lateNight";
+  }
+
+  function getPool(){
+    return homeMessages[getPeriod()].concat(homeMessages.common);
+  }
 
   function changeConversation(){
+    var pool = getPool();
     var index;
-    do{index=Math.floor(Math.random()*conversations.length);}
-    while(conversations.length>1 && index===last);
-    last=index;
+    do{
+      index = Math.floor(Math.random() * pool.length);
+    }while(pool.length > 1 && index === last);
+
+    last = index;
     image.classList.remove("pop");
     void image.offsetWidth;
-    image.src=conversations[index].image;
-    image.alt="宙星かなで";
-    message.textContent=conversations[index].text;
+    image.src = pool[index].image;
+    image.alt = "宙星かなで";
+    message.textContent = pool[index].text;
     image.classList.add("pop");
   }
 
-  document.getElementById("changeLine").addEventListener("click",changeConversation,false);
+  document.getElementById("changeLine").addEventListener("click", changeConversation, false);
   changeConversation();
 })();
 </script>

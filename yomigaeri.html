@@ -61,7 +61,7 @@ h2{font-size:16px;color:var(--muted);margin:22px 4px 12px}
 <div class="kicker">📚 MTGデッキ開発室</div>
 <h1>🎭 黄泉還りの輪舞</h1>
 <div class="sub">統率者：虐殺少女 / Massacre Girl</div>
-<div class="sub ver">Ver.3.1・かなでナビ対応</div>
+<div class="sub ver">Ver.3.2・輪舞専用ナビ</div>
 <div class="progressrow"><span>購入進捗</span><strong id="progressText">0 / 100</strong></div>
 <div class="bar"><div class="fill" id="fill"></div></div>
 <div class="legend"><span>🔥 最優先</span><span>⭐ 通常</span><span>○ 後回し</span></div>
@@ -509,22 +509,48 @@ function updateKanade(bought,total,percent){
   var message=document.getElementById("deckKanadeMessage");
   if(!image||!message)return;
 
+  var hour=new Date().getHours();
+  var timeGreeting="";
+  if(hour>=5&&hour<11) timeGreeting="朝から輪舞の稽古、やる気じゃん！ ";
+  else if(hour>=18&&hour<24) timeGreeting="夜の開発室って、このデッキに似合うよね。 ";
+  else if(hour<5) timeGreeting="深夜の墓地会議、ちょっと雰囲気あるかも。 ";
+
+  var choices=[];
+
   if(bought===0){
     image.src="kanade_shopping.png";
-    message.textContent="「まずは欲しいカードを確認！ ショップ準備は任せて！」";
+    choices=[
+      "「"+timeGreeting+"まずは欲しい役者を確認！ ショップ準備は任せて！」",
+      "「《黄泉還りの輪舞》の幕開けに必要なカード、集めに行こ！」"
+    ];
   }else if(bought>=total){
     image.src="kanade_success.png";
-    message.textContent="「全カード購入完了！ やったじゃん、くーちゃん！！」";
+    choices=[
+      "「全カード購入完了！ これで舞台の役者が揃ったね！！」",
+      "「やったじゃん、くーちゃん！ あとは実戦で輪舞を育てるだけ！」"
+    ];
   }else if(percent>=80){
     image.src="kanade_happy.png";
-    message.textContent="「あと少し！ 完成がかなり見えてきたね！」";
+    choices=[
+      "「あと少し！ 舞台の完成がかなり見えてきたね！」",
+      "「終演間近……じゃなくて、開演間近だね！」"
+    ];
   }else if(percent>=40){
     image.src="kanade_happy.png";
-    message.textContent="「いい感じに集まってきた！ この調子でいこー！」";
+    choices=[
+      "「いい感じに役者が集まってきた！ この調子でいこー！」",
+      "「墓地から舞い戻る準備、だいぶ整ってきたね！」"
+    ];
   }else{
     image.src="kanade_thinking.png";
-    message.textContent="「優先度を見ながら、必要な役者から集めてこっか。」";
+    choices=[
+      "「優先度を見ながら、必要な役者から集めてこっか。」",
+      "「一番強いカードより、一番このデッキらしいカードを選ぼ！」",
+      "「小型の役者と、再演の切り札……配役バランス大事だね。」"
+    ];
   }
+
+  message.textContent=choices[Math.floor(Math.random()*choices.length)];
 }
 
 function remember(index){
