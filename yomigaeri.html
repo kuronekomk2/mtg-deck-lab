@@ -29,7 +29,29 @@ h2{font-size:16px;color:var(--muted);margin:22px 4px 12px}
 .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:white;color:#24172d;padding:11px 16px;border-radius:999px;font-weight:800;display:none;z-index:5}
 .fallback{font-size:12px;color:var(--muted);margin:12px 2px}
 .home-link{display:inline-flex;align-items:center;gap:7px;margin:0 0 12px;color:var(--accent);text-decoration:none;font-size:14px;font-weight:850;padding:9px 12px;border:1px solid var(--line);border-radius:13px;background:var(--panel)}
-@media(max-width:520px){.actions{grid-template-columns:1fr}}
+
+.kanade-guide{
+  position:relative;display:grid;grid-template-columns:118px 1fr;gap:6px;align-items:end;
+  min-height:170px;margin:14px 0 18px;padding:12px 14px 12px 7px;overflow:hidden;
+  border:1px solid #60446e;border-radius:20px;
+  background:linear-gradient(135deg,rgba(83,48,103,.42),rgba(33,25,43,.96));
+}
+.kanade-guide img{
+  width:125px;height:155px;object-fit:contain;object-position:center bottom;
+  margin-bottom:-13px;filter:drop-shadow(0 9px 10px rgba(0,0,0,.25));
+}
+.kanade-guide-text{align-self:center;padding:4px 3px}
+.kanade-guide-name{font-size:12px;font-weight:900;color:#dfc3ff;margin-bottom:7px}
+.kanade-bubble{
+  position:relative;background:#faf7fc;color:#291d31;border-radius:16px;
+  padding:13px 13px;font-size:14px;line-height:1.55;font-weight:800;
+}
+.kanade-bubble:before{
+  content:"";position:absolute;left:-11px;bottom:24px;border-width:8px 12px 8px 0;
+  border-style:solid;border-color:transparent #faf7fc transparent transparent;
+}
+
+@media(max-width:520px){.actions{grid-template-columns:1fr}.kanade-guide{grid-template-columns:100px 1fr}.kanade-guide img{width:108px;height:140px}.kanade-bubble{font-size:13px}}
 </style>
 </head>
 <body>
@@ -39,10 +61,18 @@ h2{font-size:16px;color:var(--muted);margin:22px 4px 12px}
 <div class="kicker">📚 MTGデッキ開発室</div>
 <h1>🎭 黄泉還りの輪舞</h1>
 <div class="sub">統率者：虐殺少女 / Massacre Girl</div>
-<div class="sub ver">Ver.3.0・購入チェックリスト</div>
+<div class="sub ver">Ver.3.1・かなでナビ対応</div>
 <div class="progressrow"><span>購入進捗</span><strong id="progressText">0 / 100</strong></div>
 <div class="bar"><div class="fill" id="fill"></div></div>
 <div class="legend"><span>🔥 最優先</span><span>⭐ 通常</span><span>○ 後回し</span></div>
+</section>
+
+<section class="kanade-guide" aria-live="polite">
+  <img id="deckKanadeImage" src="kanade_shopping.png" alt="宙星かなで">
+  <div class="kanade-guide-text">
+    <div class="kanade-guide-name">💜 宙星かなで</div>
+    <div class="kanade-bubble" id="deckKanadeMessage">「購入リスト、チェックしてこ！」</div>
+  </div>
 </section>
 <div class="actions">
 <button class="action primary" id="copyAll" type="button">📋 デッキ全体をコピー</button>
@@ -469,7 +499,32 @@ function update(){
     else{card.className="card";}
   }
   document.getElementById("progressText").textContent=bought+" / "+total;
-  document.getElementById("fill").style.width=(total?Math.round(bought*100/total):0)+"%";
+  var percent=total?Math.round(bought*100/total):0;
+  document.getElementById("fill").style.width=percent+"%";
+  updateKanade(bought,total,percent);
+}
+
+function updateKanade(bought,total,percent){
+  var image=document.getElementById("deckKanadeImage");
+  var message=document.getElementById("deckKanadeMessage");
+  if(!image||!message)return;
+
+  if(bought===0){
+    image.src="kanade_shopping.png";
+    message.textContent="「まずは欲しいカードを確認！ ショップ準備は任せて！」";
+  }else if(bought>=total){
+    image.src="kanade_success.png";
+    message.textContent="「全カード購入完了！ やったじゃん、くーちゃん！！」";
+  }else if(percent>=80){
+    image.src="kanade_happy.png";
+    message.textContent="「あと少し！ 完成がかなり見えてきたね！」";
+  }else if(percent>=40){
+    image.src="kanade_happy.png";
+    message.textContent="「いい感じに集まってきた！ この調子でいこー！」";
+  }else{
+    image.src="kanade_thinking.png";
+    message.textContent="「優先度を見ながら、必要な役者から集めてこっか。」";
+  }
 }
 
 function remember(index){
