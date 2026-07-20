@@ -1,2 +1,2 @@
 # mtg-deck-lab
-Ver.3.1
+Ver.3.1・
