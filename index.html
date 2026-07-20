@@ -29,11 +29,12 @@ button{font:inherit}
   box-shadow:0 18px 42px rgba(0,0,0,.38);background:#080710;
 }
 .title-card{
-  position:relative;margin-top:14px;border:1px solid #735a75;border-radius:21px;
+  position:relative;margin:14px 0 18px;border:1px solid #735a75;border-radius:21px;
   overflow:hidden;background:#0b0912;box-shadow:0 12px 28px rgba(0,0,0,.24);
 }
 .title-card img{
-  width:100%;display:block;aspect-ratio:16/8.2;object-fit:cover;
+  width:100%;display:block;aspect-ratio:16/6.8;object-fit:cover;
+  object-position:center 42%;
 }
 .version{
   position:absolute;right:12px;bottom:12px;display:inline-block;padding:6px 10px;
@@ -94,8 +95,8 @@ button{font:inherit}
 @media(max-width:520px){
   .app{padding-top:8px}
   .brand-banner{border-radius:17px}
-  .title-card{margin-top:10px;border-radius:17px}
-  .title-card img{aspect-ratio:16/8.7}
+  .title-card{margin:10px 0 14px;border-radius:17px}
+  .title-card img{aspect-ratio:16/7.2;object-position:center 40%}
   .version{right:9px;bottom:9px;font-size:10px;padding:5px 8px}
   .kanade-area{min-height:235px}
   .kanade-figure{width:165px;left:-17px;bottom:10px;max-height:215px}
@@ -117,12 +118,6 @@ button{font:inherit}
   <img class="brand-banner" src="kanade_mtg_manager_logo.jpg"
        alt="宙星かなでのMTGマネージャー">
 
-  <section class="title-card" aria-label="MTGデッキ開発室">
-    <img src="mtg_deck_lab_title.jpg"
-         alt="MTGデッキ開発室。デッキは完成させるものじゃない。実際に遊びながら、一緒に育てていくもの。">
-    <span class="version">Ver.3.6</span>
-  </section>
-
   <section class="kanade-area" aria-live="polite">
     <img class="kanade-figure" id="kanadeImage" src="kanade_normal.png" alt="宙星かなで">
     <div class="kanade-content">
@@ -130,6 +125,12 @@ button{font:inherit}
       <div class="speech" id="kanadeMessage">「くーちゃん、今日はどのデッキ育てる？」</div>
       <button class="change-line" id="changeLine" type="button">✨ かなでのひとことを変える</button>
     </div>
+  </section>
+
+  <section class="title-card" aria-label="MTGデッキ開発室">
+    <img src="mtg_deck_lab_title.jpg"
+         alt="MTGデッキ開発室。デッキは完成させるものじゃない。実際に遊びながら、一緒に育てていくもの。">
+    <span class="version">Ver.3.6.1</span>
   </section>
 
   <div class="section-title">デッキを選ぶ</div>
@@ -197,7 +198,7 @@ button{font:inherit}
       {image:"kanade_normal.png", text:"「焦らず一枚ずつ、このデッキらしく育ててこ！」"},
       {image:"kanade_happy.png", text:"「新しいアイデア、なんか降りてきそうじゃない？」"},
       {image:"kanade_thinking.png", text:"「強いだけじゃなくて、“このデッキらしい”も大事だよね。」"},
-      {image:"kanade_success.png", text:"「開発室の看板も完成！ ここからまたデッキを育ててこ！」"}
+      {image:"kanade_success.png", text:"「今日はどのデッキ育てる？ 開発室で作戦会議しよ！」"}
     ]
   };
 
