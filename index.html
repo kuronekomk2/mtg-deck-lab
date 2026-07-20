@@ -6,12 +6,12 @@
 <meta name="theme-color" content="#100d16">
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="apple-mobile-web-app-title" content="MTGデッキ開発室">
-<title>📚 MTGデッキ開発室</title>
+<meta name="apple-mobile-web-app-title" content="かなでのMTGマネージャー">
+<title>宙星かなでのMTGマネージャー</title>
 <style>
 :root{
   --bg:#0f0c14;--panel:#1d1726;--panel2:#251d30;--line:#443650;
-  --text:#faf7fc;--muted:#bdb1c6;--accent:#c59cff;--pink:#ff8fc7;
+  --text:#faf7fc;--muted:#bdb1c6;--accent:#c59cff;--pink:#ff8fc7;--gold:#e8bd67;
 }
 *{box-sizing:border-box}
 body{
@@ -23,17 +23,22 @@ body{
     var(--bg);
 }
 button{font:inherit}
-.app{max-width:820px;margin:auto;padding:18px 14px 90px}
-.hero{
-  border:1px solid var(--line);border-radius:24px;padding:22px 20px;
-  background:linear-gradient(145deg,rgba(37,29,48,.98),rgba(25,20,33,.98));
-  box-shadow:0 16px 38px rgba(0,0,0,.28);
+.app{max-width:820px;margin:auto;padding:12px 14px 90px}
+.brand-banner{
+  width:100%;display:block;border-radius:24px;border:1px solid #735a75;
+  box-shadow:0 18px 42px rgba(0,0,0,.38);background:#080710;
 }
-.kicker{font-size:13px;color:var(--accent);font-weight:850;letter-spacing:.07em}
-h1{font-size:28px;margin:7px 0 6px}
-.hero p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
-.version{display:inline-block;margin-top:14px;padding:6px 10px;border:1px solid var(--line);
-  border-radius:999px;color:var(--accent);font-size:12px;font-weight:800}
+.hero{
+  margin-top:14px;border:1px solid var(--line);border-radius:21px;padding:17px 19px;
+  background:linear-gradient(145deg,rgba(37,29,48,.98),rgba(25,20,33,.98));
+  box-shadow:0 12px 28px rgba(0,0,0,.22);
+}
+.kicker{font-size:12px;color:var(--gold);font-weight:900;letter-spacing:.07em}
+h1{font-size:22px;margin:5px 0 4px}
+.hero p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
+.version{display:inline-block;margin-top:11px;padding:5px 9px;border:1px solid #69537a;
+  border-radius:999px;color:#e5cfff;font-size:11px;font-weight:850;
+  background:rgba(197,156,255,.06)}
 .kanade-area{
   position:relative;overflow:hidden;margin-top:18px;min-height:260px;
   border:1px solid #664775;border-radius:25px;
@@ -72,18 +77,22 @@ h1{font-size:28px;margin:7px 0 6px}
   box-shadow:0 8px 20px rgba(0,0,0,.15);transition:.18s ease;
 }
 .deck:active{transform:scale(.985)}
-.deck.available:hover{border-color:#8466a0;transform:translateY(-1px)}
+.deck.available:hover{border-color:#9b79ad;transform:translateY(-1px);box-shadow:0 9px 23px rgba(232,189,103,.06)}
 .symbol{width:54px;height:54px;display:grid;place-items:center;border-radius:16px;
   font-size:27px;background:#120e18;border:1px solid var(--line)}
 .deck h2{font-size:18px;margin:0 0 4px}
 .deck p{font-size:12px;line-height:1.55;margin:0;color:var(--muted)}
-.arrow{font-size:23px;color:var(--accent)}
+.arrow{font-size:23px;color:var(--gold)}
 .badge{display:inline-block;margin-top:7px;font-size:11px;font-weight:800;padding:4px 8px;
   border-radius:999px;background:#30243e;color:#d9bdff}
 .deck.disabled{opacity:.62;cursor:default}
 .deck.disabled .badge{color:#d8cedf;background:#29232f}
 .footer{text-align:center;color:#756b7e;font-size:11px;margin-top:24px}
 @media(max-width:520px){
+  .app{padding-top:8px}
+  .brand-banner{border-radius:17px}
+  .hero{margin-top:10px;padding:15px 16px}
+  h1{font-size:20px}
   .kanade-area{min-height:235px}
   .kanade-figure{width:165px;left:-17px;bottom:10px;max-height:215px}
   .kanade-content{margin-left:142px;padding:20px 13px 20px;min-height:235px}
@@ -101,11 +110,14 @@ h1{font-size:28px;margin:7px 0 6px}
 </head>
 <body>
 <div class="app">
+  <img class="brand-banner" src="kanade_mtg_manager_logo.jpg"
+       alt="宙星かなでのMTGマネージャー">
+
   <header class="hero">
-    <div class="kicker">📚 KŪ-CHAN'S MTG TOOL</div>
+    <div class="kicker">✨ KŪ-CHAN'S MTG TOOL</div>
     <h1>MTGデッキ開発室</h1>
-    <p>デッキは完成させるものじゃない。<br>実際に遊びながら、一緒に育てていくもの。</p>
-    <span class="version">Ver.3.4・宵星の巨影追加</span>
+    <p>デッキは完成させるものじゃない。実際に遊びながら、一緒に育てていくもの。</p>
+    <span class="version">Ver.3.5・ブランドアップデート</span>
   </header>
 
   <section class="kanade-area" aria-live="polite">
@@ -182,7 +194,7 @@ h1{font-size:28px;margin:7px 0 6px}
       {image:"kanade_normal.png", text:"「焦らず一枚ずつ、このデッキらしく育ててこ！」"},
       {image:"kanade_happy.png", text:"「新しいアイデア、なんか降りてきそうじゃない？」"},
       {image:"kanade_thinking.png", text:"「強いだけじゃなくて、“このデッキらしい”も大事だよね。」"},
-      {image:"kanade_success.png", text:"「Ver.3.2へアップデート！ かなで、ちょっと賢くなったかも！」"}
+      {image:"kanade_success.png", text:"「ロゴ完成！ ここが、くーちゃんとかなでのMTG拠点だね！」"}
     ]
   };
 
