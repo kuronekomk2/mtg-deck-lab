@@ -1,0 +1,1036 @@
+{
+  "schemaVersion": 1,
+  "deck": {
+    "id": "shuudoku",
+    "name": "終毒の臨界",
+    "nameEn": "Poison Criticality",
+    "format": "Commander",
+    "bracket": 4,
+    "symbol": "☣️",
+    "commander": {
+      "jp": "屍の王、ヴィシュグラズ",
+      "en": "Vishgraz, the Doomhive"
+    },
+    "version": "4.0",
+    "defaultMode": "shop",
+    "status": "collecting",
+    "totalCards": 100
+  },
+  "overview": {
+    "summary": "毒を一度通し、増殖で臨界点まで押し切る統率者デッキ。",
+    "concept": "感染・毒性で起点を作り、増殖とサーチで毒カウンター10個へ最短距離を進む。",
+    "stage": "カード収集中",
+    "identity": "勝ち筋は最後まで毒",
+    "identityNote": "強さだけでなく、デッキの物語と役割を残すための基準。"
+  },
+  "kanade": {
+    "image": "kanade_shopping.png",
+    "shoppingMessages": [
+      "「まずは毒の起点と増殖エンジンから確認しよ！」",
+      "「ショップで見つけたら、優先度も忘れずチェックね！」",
+      "「勝ち筋は毒。そこだけは絶対ブレさせないよ！」"
+    ],
+    "growthMessages": [
+      "「実戦で毒を通せた場面、ちゃんと残してこ！」",
+      "「次はどの増殖ルートを育てよっか？」"
+    ]
+  },
+  "sections": [
+    {
+      "id": "commander",
+      "title": "統率者",
+      "titleEn": "Commander",
+      "cards": [
+        {
+          "id": "shuudoku-000",
+          "qty": 1,
+          "jp": "屍の王、ヴィシュグラズ",
+          "en": "Vishgraz, the Doomhive",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "creatures",
+      "title": "クリーチャー",
+      "titleEn": "Creatures",
+      "cards": [
+        {
+          "id": "shuudoku-002",
+          "qty": 1,
+          "jp": "Annex Sentry",
+          "en": "Annex Sentry",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-007",
+          "qty": 1,
+          "jp": "Basilica Shepherd",
+          "en": "Basilica Shepherd",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-009",
+          "qty": 1,
+          "jp": "Bilious Skulldweller",
+          "en": "Bilious Skulldweller",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-010",
+          "qty": 1,
+          "jp": "Blight Mamba",
+          "en": "Blight Mamba",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-011",
+          "qty": 1,
+          "jp": "Bloated Contaminator",
+          "en": "Bloated Contaminator",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-015",
+          "qty": 1,
+          "jp": "Cankerbloom",
+          "en": "Cankerbloom",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-026",
+          "qty": 1,
+          "jp": "Esper Sentinel",
+          "en": "Esper Sentinel",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-027",
+          "qty": 1,
+          "jp": "Evolution Sage",
+          "en": "Evolution Sage",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-034",
+          "qty": 1,
+          "jp": "Foulmire Knight",
+          "en": "Foulmire Knight",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-035",
+          "qty": 1,
+          "jp": "Fynn, the Fangbearer",
+          "en": "Fynn, the Fangbearer",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-036",
+          "qty": 1,
+          "jp": "Gifted Aetherborn",
+          "en": "Gifted Aetherborn",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-039",
+          "qty": 1,
+          "jp": "Hand of the Praetors",
+          "en": "Hand of the Praetors",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-041",
+          "qty": 1,
+          "jp": "Hooded Blightfang",
+          "en": "Hooded Blightfang",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-042",
+          "qty": 1,
+          "jp": "Ichor Rats",
+          "en": "Ichor Rats",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-043",
+          "qty": 1,
+          "jp": "Ichorclaw Myr",
+          "en": "Ichorclaw Myr",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-048",
+          "qty": 1,
+          "jp": "Jawbone Duelist",
+          "en": "Jawbone Duelist",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-052",
+          "qty": 1,
+          "jp": "Lost Leonin",
+          "en": "Lost Leonin",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-060",
+          "qty": 1,
+          "jp": "Paradise Druid",
+          "en": "Paradise Druid",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-061",
+          "qty": 1,
+          "jp": "Phyrexian Crusader",
+          "en": "Phyrexian Crusader",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-062",
+          "qty": 1,
+          "jp": "Phyrexian Swarmlord",
+          "en": "Phyrexian Swarmlord",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-063",
+          "qty": 1,
+          "jp": "Plague Myr",
+          "en": "Plague Myr",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-067",
+          "qty": 1,
+          "jp": "Sheoldred, Whispering One",
+          "en": "Sheoldred, Whispering One",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-069",
+          "qty": 1,
+          "jp": "Skithiryx, the Blight Dragon",
+          "en": "Skithiryx, the Blight Dragon",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-071",
+          "qty": 1,
+          "jp": "Slaughter Singer",
+          "en": "Slaughter Singer",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-083",
+          "qty": 1,
+          "jp": "Venerated Rotpriest",
+          "en": "Venerated Rotpriest",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-084",
+          "qty": 1,
+          "jp": "Venomous Brutalizer",
+          "en": "Venomous Brutalizer",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "instants",
+      "title": "インスタント",
+      "titleEn": "Instants",
+      "cards": [
+        {
+          "id": "shuudoku-001",
+          "qty": 1,
+          "jp": "Anguished Unmaking",
+          "en": "Anguished Unmaking",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-005",
+          "qty": 1,
+          "jp": "Assassin's Trophy",
+          "en": "Assassin's Trophy",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-008",
+          "qty": 1,
+          "jp": "Beast Within",
+          "en": "Beast Within",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-017",
+          "qty": 1,
+          "jp": "Chord of Calling",
+          "en": "Chord of Calling",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-025",
+          "qty": 1,
+          "jp": "Eladamri's Call",
+          "en": "Eladamri's Call",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-040",
+          "qty": 1,
+          "jp": "Heroic Intervention",
+          "en": "Heroic Intervention",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-056",
+          "qty": 1,
+          "jp": "Nature's Claim",
+          "en": "Nature's Claim",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-076",
+          "qty": 1,
+          "jp": "Swords to Plowshares",
+          "en": "Swords to Plowshares",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-078",
+          "qty": 1,
+          "jp": "Tamiyo's Safekeeping",
+          "en": "Tamiyo's Safekeeping",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-087",
+          "qty": 1,
+          "jp": "Vraska's Fall",
+          "en": "Vraska's Fall",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-088",
+          "qty": 1,
+          "jp": "Whisper of the Dross",
+          "en": "Whisper of the Dross",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-093",
+          "qty": 1,
+          "jp": "Worldly Tutor",
+          "en": "Worldly Tutor",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "sorceries",
+      "title": "ソーサリー",
+      "titleEn": "Sorceries",
+      "cards": [
+        {
+          "id": "shuudoku-022",
+          "qty": 1,
+          "jp": "Cultivate",
+          "en": "Cultivate",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-023",
+          "qty": 1,
+          "jp": "Demonic Tutor",
+          "en": "Demonic Tutor",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-024",
+          "qty": 1,
+          "jp": "Diabolic Intent",
+          "en": "Diabolic Intent",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-029",
+          "qty": 1,
+          "jp": "Farseek",
+          "en": "Farseek",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-031",
+          "qty": 1,
+          "jp": "Finale of Devastation",
+          "en": "Finale of Devastation",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-038",
+          "qty": 1,
+          "jp": "Green Sun's Zenith",
+          "en": "Green Sun's Zenith",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-044",
+          "qty": 1,
+          "jp": "Idyllic Tutor",
+          "en": "Idyllic Tutor",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-046",
+          "qty": 1,
+          "jp": "Infectious Inquiry",
+          "en": "Infectious Inquiry",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-050",
+          "qty": 1,
+          "jp": "Kodama's Reach",
+          "en": "Kodama's Reach",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-057",
+          "qty": 1,
+          "jp": "Nature's Lore",
+          "en": "Nature's Lore",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-059",
+          "qty": 1,
+          "jp": "Painful Truths",
+          "en": "Painful Truths",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-068",
+          "qty": 1,
+          "jp": "Sign in Blood",
+          "en": "Sign in Blood",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-081",
+          "qty": 1,
+          "jp": "Three Visits",
+          "en": "Three Visits",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-089",
+          "qty": 1,
+          "jp": "White Sun's Twilight",
+          "en": "White Sun's Twilight",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "artifacts",
+      "title": "アーティファクト",
+      "titleEn": "Artifacts",
+      "cards": [
+        {
+          "id": "shuudoku-003",
+          "qty": 1,
+          "jp": "Arcane Signet",
+          "en": "Arcane Signet",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-020",
+          "qty": 1,
+          "jp": "Contagion Clasp",
+          "en": "Contagion Clasp",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-021",
+          "qty": 1,
+          "jp": "Contagion Engine",
+          "en": "Contagion Engine",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-030",
+          "qty": 1,
+          "jp": "Fellwar Stone",
+          "en": "Fellwar Stone",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-070",
+          "qty": 1,
+          "jp": "Skullclamp",
+          "en": "Skullclamp",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-072",
+          "qty": 1,
+          "jp": "Sol Ring",
+          "en": "Sol Ring",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-073",
+          "qty": 1,
+          "jp": "Staff of Compleation",
+          "en": "Staff of Compleation",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "enchantments",
+      "title": "エンチャント",
+      "titleEn": "Enchantments",
+      "cards": [
+        {
+          "id": "shuudoku-006",
+          "qty": 1,
+          "jp": "Authority of the Consuls",
+          "en": "Authority of the Consuls",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-013",
+          "qty": 1,
+          "jp": "Bow of Nylea",
+          "en": "Bow of Nylea",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-077",
+          "qty": 1,
+          "jp": "Sylvan Library",
+          "en": "Sylvan Library",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-082",
+          "qty": 1,
+          "jp": "Utopia Sprawl",
+          "en": "Utopia Sprawl",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "planeswalkers",
+      "title": "プレインズウォーカー",
+      "titleEn": "Planeswalkers",
+      "cards": [
+        {
+          "id": "shuudoku-086",
+          "qty": 1,
+          "jp": "Vraska, Betrayal's Sting",
+          "en": "Vraska, Betrayal's Sting",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "lands",
+      "title": "土地",
+      "titleEn": "Lands",
+      "cards": [
+        {
+          "id": "shuudoku-004",
+          "qty": 1,
+          "jp": "Arid Mesa",
+          "en": "Arid Mesa",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-012",
+          "qty": 1,
+          "jp": "Bloodstained Mire",
+          "en": "Bloodstained Mire",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-014",
+          "qty": 1,
+          "jp": "Brushland",
+          "en": "Brushland",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-016",
+          "qty": 1,
+          "jp": "Caves of Koilos",
+          "en": "Caves of Koilos",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-018",
+          "qty": 1,
+          "jp": "City of Brass",
+          "en": "City of Brass",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-019",
+          "qty": 1,
+          "jp": "Command Tower",
+          "en": "Command Tower",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-028",
+          "qty": 1,
+          "jp": "Exotic Orchard",
+          "en": "Exotic Orchard",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-032",
+          "qty": 1,
+          "jp": "Forbidden Orchard",
+          "en": "Forbidden Orchard",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-033",
+          "qty": 5,
+          "jp": "Forest",
+          "en": "Forest",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-037",
+          "qty": 1,
+          "jp": "Godless Shrine",
+          "en": "Godless Shrine",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-045",
+          "qty": 1,
+          "jp": "Indatha Triome",
+          "en": "Indatha Triome",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-047",
+          "qty": 1,
+          "jp": "Isolated Chapel",
+          "en": "Isolated Chapel",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-049",
+          "qty": 1,
+          "jp": "Karn's Bastion",
+          "en": "Karn's Bastion",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-051",
+          "qty": 1,
+          "jp": "Llanowar Wastes",
+          "en": "Llanowar Wastes",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-053",
+          "qty": 1,
+          "jp": "Marsh Flats",
+          "en": "Marsh Flats",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-054",
+          "qty": 1,
+          "jp": "Mirrex",
+          "en": "Mirrex",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-055",
+          "qty": 1,
+          "jp": "Misty Rainforest",
+          "en": "Misty Rainforest",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-058",
+          "qty": 1,
+          "jp": "Overgrown Tomb",
+          "en": "Overgrown Tomb",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-064",
+          "qty": 2,
+          "jp": "Plains",
+          "en": "Plains",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-065",
+          "qty": 1,
+          "jp": "Polluted Delta",
+          "en": "Polluted Delta",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-066",
+          "qty": 1,
+          "jp": "Scalding Tarn",
+          "en": "Scalding Tarn",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-074",
+          "qty": 1,
+          "jp": "Sunpetal Grove",
+          "en": "Sunpetal Grove",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-075",
+          "qty": 2,
+          "jp": "Swamp",
+          "en": "Swamp",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-079",
+          "qty": 1,
+          "jp": "Temple Garden",
+          "en": "Temple Garden",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-080",
+          "qty": 1,
+          "jp": "The Seedcore",
+          "en": "The Seedcore",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-085",
+          "qty": 1,
+          "jp": "Verdant Catacombs",
+          "en": "Verdant Catacombs",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-090",
+          "qty": 1,
+          "jp": "Windswept Heath",
+          "en": "Windswept Heath",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-091",
+          "qty": 1,
+          "jp": "Wooded Foothills",
+          "en": "Wooded Foothills",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "shuudoku-092",
+          "qty": 1,
+          "jp": "Woodland Cemetery",
+          "en": "Woodland Cemetery",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    }
+  ]
+}

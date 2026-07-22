@@ -1,0 +1,866 @@
+{
+  "schemaVersion": 1,
+  "deck": {
+    "id": "yomigaeri",
+    "name": "黄泉還りの輪舞",
+    "nameEn": "Dance of the Returned",
+    "format": "Commander",
+    "bracket": 2,
+    "symbol": "🎭",
+    "commander": {
+      "jp": "虐殺少女",
+      "en": "Massacre Girl"
+    },
+    "version": "4.0",
+    "defaultMode": "shop",
+    "status": "collecting",
+    "totalCards": 100
+  },
+  "overview": {
+    "summary": "死者たちが何度でも舞台へ戻る、黒単リアニメイトの輪舞。",
+    "concept": "小型クリーチャーやトークンを並べ、《虐殺少女》の登場で死亡連鎖を起こし、墓地から再演する。",
+    "stage": "カード収集中",
+    "identity": "物語と配役を最優先",
+    "identityNote": "強さだけでなく、デッキの物語と各カードの役割を残しながら育てる。"
+  },
+  "kanade": {
+    "image": "kanade_shopping.png",
+    "shoppingMessages": [
+      "「購入リスト、チェックしてこ！」",
+      "「まずは舞台の主役から集めよっか！」",
+      "「死者たちの配役、抜けがないか確認しよ〜！」"
+    ],
+    "growthMessages": [
+      "「実戦で見えたこと、忘れないうちに残してこ！」",
+      "「この輪舞、次はどこを育てよっか？」"
+    ]
+  },
+  "sections": [
+    {
+      "id": "commander",
+      "title": "統率者",
+      "titleEn": "Commander",
+      "cards": [
+        {
+          "id": "yomigaeri-000",
+          "qty": 1,
+          "jp": "虐殺少女",
+          "en": "Massacre Girl",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "creatures",
+      "title": "クリーチャー",
+      "titleEn": "Creatures",
+      "cards": [
+        {
+          "id": "yomigaeri-001",
+          "qty": 1,
+          "jp": "墓所這い",
+          "en": "Gravecrawler",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-002",
+          "qty": 1,
+          "jp": "よろめく怪異",
+          "en": "Shambling Ghast",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-003",
+          "qty": 1,
+          "jp": "縫い師への供給者",
+          "en": "Stitcher's Supplier",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-004",
+          "qty": 1,
+          "jp": "臓物の予見者",
+          "en": "Viscera Seer",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-005",
+          "qty": 1,
+          "jp": "血の芸術家",
+          "en": "Blood Artist",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-006",
+          "qty": 1,
+          "jp": "宿命の旅人",
+          "en": "Doomed Dissenter",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-007",
+          "qty": 1,
+          "jp": "ネファリアのグール呼び、ジャダー",
+          "en": "Jadar, Ghoulcaller of Nephalia",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-008",
+          "qty": 1,
+          "jp": "ラゾテプの肉裂き",
+          "en": "Lazotep Reaver",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-009",
+          "qty": 1,
+          "jp": "ぬかるみのトリトン",
+          "en": "Mire Triton",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-010",
+          "qty": 1,
+          "jp": "組み直しの骸骨",
+          "en": "Reassembling Skeleton",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-011",
+          "qty": 1,
+          "jp": "執拗な死者",
+          "en": "Relentless Dead",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-012",
+          "qty": 1,
+          "jp": "ロークスワインの元首、アヤーラ",
+          "en": "Ayara, First of Locthwain",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-013",
+          "qty": 1,
+          "jp": "真夜中の死神",
+          "en": "Midnight Reaper",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-014",
+          "qty": 1,
+          "jp": "病的な日和見主義者",
+          "en": "Morbid Opportunist",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-015",
+          "qty": 1,
+          "jp": "蛇術師",
+          "en": "Ophiomancer",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-016",
+          "qty": 1,
+          "jp": "ウラモグの手先",
+          "en": "Pawn of Ulamog",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-017",
+          "qty": 1,
+          "jp": "疫病造り師",
+          "en": "Plaguecrafter",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-018",
+          "qty": 1,
+          "jp": "オリークの伝承魔道士",
+          "en": "Oriq Loremage",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-019",
+          "qty": 1,
+          "jp": "無情な略奪者",
+          "en": "Pitiless Plunderer",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-020",
+          "qty": 1,
+          "jp": "頭蓋ふるい",
+          "en": "Sifter of Skulls",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-021",
+          "qty": 1,
+          "jp": "スランの医師、ヨーグモス",
+          "en": "Yawgmoth, Thran Physician",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-022",
+          "qty": 1,
+          "jp": "練達の育種師、エンドレク・サール",
+          "en": "Endrek Sahr, Master Breeder",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-023",
+          "qty": 1,
+          "jp": "墓破りのラミア",
+          "en": "Gravebreaker Lamia",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-024",
+          "qty": 1,
+          "jp": "オーガの貧王",
+          "en": "Ogre Slumlord",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-025",
+          "qty": 1,
+          "jp": "ファイレクシアの発掘者",
+          "en": "Phyrexian Delver",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-026",
+          "qty": 1,
+          "jp": "墓所のタイタン",
+          "en": "Grave Titan",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-027",
+          "qty": 1,
+          "jp": "不浄なる者、ミケウス",
+          "en": "Mikaeus, the Unhallowed",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-028",
+          "qty": 1,
+          "jp": "残忍な騎士",
+          "en": "Murderous Rider",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-029",
+          "qty": 1,
+          "jp": "忌まわしき首領",
+          "en": "Abhorrent Overlord",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-030",
+          "qty": 1,
+          "jp": "囁く者、シェオルドレッド",
+          "en": "Sheoldred, Whispering One",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "instants",
+      "title": "インスタント",
+      "titleEn": "Instants",
+      "cards": [
+        {
+          "id": "yomigaeri-031",
+          "qty": 1,
+          "jp": "暗黒の儀式",
+          "en": "Dark Ritual",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-032",
+          "qty": 1,
+          "jp": "汚涜",
+          "en": "Defile",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-033",
+          "qty": 1,
+          "jp": "納墓",
+          "en": "Entomb",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-034",
+          "qty": 1,
+          "jp": "マラキールの再誕",
+          "en": "Malakir Rebirth",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-035",
+          "qty": 1,
+          "jp": "喉首狙い",
+          "en": "Go for the Throat",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-036",
+          "qty": 1,
+          "jp": "殺し",
+          "en": "Snuff Out",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "sorceries",
+      "title": "ソーサリー",
+      "titleEn": "Sorceries",
+      "cards": [
+        {
+          "id": "yomigaeri-037",
+          "qty": 1,
+          "jp": "不敬な教示者",
+          "en": "Profane Tutor",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-038",
+          "qty": 1,
+          "jp": "悪魔の意図",
+          "en": "Diabolic Intent",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-039",
+          "qty": 1,
+          "jp": "大群への給餌",
+          "en": "Feed the Swarm",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-040",
+          "qty": 1,
+          "jp": "アガディームの覚醒",
+          "en": "Agadeem's Awakening",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-041",
+          "qty": 1,
+          "jp": "生き埋め",
+          "en": "Buried Alive",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-042",
+          "qty": 1,
+          "jp": "骨読み",
+          "en": "Read the Bones",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-043",
+          "qty": 1,
+          "jp": "犠牲",
+          "en": "Victimize",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-044",
+          "qty": 1,
+          "jp": "最後の別れ",
+          "en": "Final Parting",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-045",
+          "qty": 1,
+          "jp": "生ける屍",
+          "en": "Living Death",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-046",
+          "qty": 1,
+          "jp": "忌むべき者の軍団",
+          "en": "Army of the Damned",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "enchantments",
+      "title": "エンチャント",
+      "titleEn": "Enchantments",
+      "cards": [
+        {
+          "id": "yomigaeri-047",
+          "qty": 1,
+          "jp": "ファイレクシア流再利用",
+          "en": "Phyrexian Reclamation",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-048",
+          "qty": 1,
+          "jp": "拷問生活",
+          "en": "Tortured Existence",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-049",
+          "qty": 1,
+          "jp": "動く死体",
+          "en": "Animate Dead",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-050",
+          "qty": 1,
+          "jp": "苦花",
+          "en": "Bitterblossom",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-051",
+          "qty": 1,
+          "jp": "血統の呼び出し",
+          "en": "Call the Bloodline",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-052",
+          "qty": 1,
+          "jp": "戦慄衆の侵略",
+          "en": "Dreadhorde Invasion",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-053",
+          "qty": 1,
+          "jp": "定員過剰の墓地",
+          "en": "Oversold Cemetery",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-054",
+          "qty": 1,
+          "jp": "ゾンビの横行",
+          "en": "Zombie Infestation",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-055",
+          "qty": 1,
+          "jp": "ファイレクシアの闘技場",
+          "en": "Phyrexian Arena",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-056",
+          "qty": 1,
+          "jp": "墓穴までの契約",
+          "en": "Grave Pact",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-057",
+          "qty": 1,
+          "jp": "闇市場",
+          "en": "Black Market",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-058",
+          "qty": 1,
+          "jp": "エレボスの指図",
+          "en": "Dictate of Erebos",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "artifacts",
+      "title": "アーティファクト",
+      "titleEn": "Artifacts",
+      "cards": [
+        {
+          "id": "yomigaeri-059",
+          "qty": 1,
+          "jp": "頭蓋骨絞め",
+          "en": "Skullclamp",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-060",
+          "qty": 1,
+          "jp": "太陽の指輪",
+          "en": "Sol Ring",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-061",
+          "qty": 1,
+          "jp": "狂気の祭壇",
+          "en": "Altar of Dementia",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-062",
+          "qty": 1,
+          "jp": "秘儀の印鑑",
+          "en": "Arcane Signet",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-063",
+          "qty": 1,
+          "jp": "アシュノッドの供犠台",
+          "en": "Ashnod's Altar",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-064",
+          "qty": 1,
+          "jp": "ファイレクシアの供犠台",
+          "en": "Phyrexian Altar",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "planeswalkers",
+      "title": "プレインズウォーカー",
+      "titleEn": "Planeswalkers",
+      "cards": [
+        {
+          "id": "yomigaeri-065",
+          "qty": 1,
+          "jp": "戦慄衆の将軍、リリアナ",
+          "en": "Liliana, Dreadhorde General",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "lands",
+      "title": "土地",
+      "titleEn": "Lands",
+      "cards": [
+        {
+          "id": "yomigaeri-066",
+          "qty": 1,
+          "jp": "ボジューカの沼",
+          "en": "Bojuka Bog",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-067",
+          "qty": 1,
+          "jp": "陰謀団の貴重品室",
+          "en": "Cabal Coffers",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-068",
+          "qty": 1,
+          "jp": "ロークスワイン城",
+          "en": "Castle Locthwain",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-069",
+          "qty": 1,
+          "jp": "高級市場",
+          "en": "High Market",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-070",
+          "qty": 1,
+          "jp": "ファイレクシアの塔",
+          "en": "Phyrexian Tower",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-071",
+          "qty": 24,
+          "jp": "沼",
+          "en": "Swamp",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-072",
+          "qty": 1,
+          "jp": "見捨てられたぬかるみ、竹沼",
+          "en": "Takenuma, Abandoned Mire",
+          "priority": 1,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-073",
+          "qty": 1,
+          "jp": "ヨーグモスの墳墓、アーボーグ",
+          "en": "Urborg, Tomb of Yawgmoth",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-074",
+          "qty": 1,
+          "jp": "ヴォルラスの要塞",
+          "en": "Volrath's Stronghold",
+          "priority": 0,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-075",
+          "qty": 1,
+          "jp": "作戦室",
+          "en": "War Room",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yomigaeri-076",
+          "qty": 1,
+          "jp": "ウェストヴェイルの修道院",
+          "en": "Westvale Abbey",
+          "priority": 2,
+          "owned": false,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    }
+  ]
+}

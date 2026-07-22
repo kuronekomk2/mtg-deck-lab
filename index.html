@@ -3,240 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#100d16">
+<meta name="theme-color" content="#0f0c14">
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="apple-mobile-web-app-title" content="かなでのMTGマネージャー">
-<title>宙星かなでのMTGマネージャー</title>
-<style>
-:root{
-  --bg:#0f0c14;--panel:#1d1726;--panel2:#251d30;--line:#443650;
-  --text:#faf7fc;--muted:#bdb1c6;--accent:#c59cff;--pink:#ff8fc7;--gold:#e8bd67;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic UI",sans-serif;
-  background:
-    radial-gradient(circle at 15% 0%,rgba(197,156,255,.16),transparent 32%),
-    radial-gradient(circle at 95% 22%,rgba(255,143,199,.11),transparent 28%),
-    var(--bg);
-}
-button{font:inherit}
-.app{max-width:820px;margin:auto;padding:12px 14px 90px}
-.brand-banner{
-  width:100%;display:block;border-radius:24px;border:1px solid #735a75;
-  box-shadow:0 18px 42px rgba(0,0,0,.38);background:#080710;
-}
-.title-card{
-  position:relative;margin:14px 0 18px;border:1px solid #735a75;border-radius:21px;
-  overflow:hidden;background:#0b0912;box-shadow:0 12px 28px rgba(0,0,0,.24);
-}
-.title-card img{
-  width:100%;display:block;aspect-ratio:16/6.8;object-fit:cover;
-  object-position:center 42%;
-}
-.version{
-  position:absolute;right:12px;bottom:12px;display:inline-block;padding:6px 10px;
-  border:1px solid rgba(232,189,103,.6);border-radius:999px;
-  color:#fff2cf;font-size:11px;font-weight:900;
-  background:rgba(17,12,24,.78);backdrop-filter:blur(8px);
-  box-shadow:0 4px 14px rgba(0,0,0,.3)
-}
-.kanade-area{
-  position:relative;overflow:hidden;margin-top:18px;min-height:260px;
-  border:1px solid #664775;border-radius:25px;
-  background:
-    radial-gradient(circle at 16% 18%,rgba(255,143,199,.19),transparent 28%),
-    linear-gradient(135deg,rgba(92,56,112,.5),rgba(35,25,48,.94));
-  box-shadow:0 14px 30px rgba(0,0,0,.2);
-}
-.kanade-figure{
-  position:absolute;left:-8px;bottom:12px;width:205px;max-height:250px;
-  object-fit:contain;object-position:left bottom;filter:drop-shadow(0 12px 13px rgba(0,0,0,.28));
-  transition:opacity .18s ease,transform .18s ease;
-}
-.kanade-content{position:relative;margin-left:182px;padding:25px 18px 24px;min-height:260px;
-  display:flex;flex-direction:column;justify-content:center}
-.kanade-label{font-weight:900;color:#e7ccff;font-size:14px}
-.speech{
-  position:relative;margin-top:11px;padding:17px 16px;border-radius:19px;
-  background:rgba(250,247,252,.97);color:#291d31;font-size:16px;font-weight:800;line-height:1.65;
-  box-shadow:0 8px 20px rgba(0,0,0,.14);
-}
-.speech:before{
-  content:"";position:absolute;left:-13px;bottom:28px;border-width:10px 14px 10px 0;
-  border-style:solid;border-color:transparent rgba(250,247,252,.97) transparent transparent;
-}
-.change-line{
-  align-self:flex-start;margin-top:16px;border:1px solid #806293;background:#2b2136;
-  color:#e8d5ff;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:850;
-}
-.section-title{font-size:15px;color:var(--muted);font-weight:850;margin:22px 4px 11px}
-.decks{display:grid;gap:12px}
-.deck{
-  display:grid;grid-template-columns:58px 1fr auto;gap:13px;align-items:center;
-  padding:16px;border:1px solid var(--line);border-radius:19px;
-  background:rgba(29,23,38,.96);color:var(--text);text-decoration:none;
-  box-shadow:0 8px 20px rgba(0,0,0,.15);transition:.18s ease;
-}
-.deck:active{transform:scale(.985)}
-.deck.available:hover{border-color:#9b79ad;transform:translateY(-1px);box-shadow:0 9px 23px rgba(232,189,103,.06)}
-.symbol{width:54px;height:54px;display:grid;place-items:center;border-radius:16px;
-  font-size:27px;background:#120e18;border:1px solid var(--line)}
-.deck h2{font-size:18px;margin:0 0 4px}
-.deck p{font-size:12px;line-height:1.55;margin:0;color:var(--muted)}
-.arrow{font-size:23px;color:var(--gold)}
-.badge{display:inline-block;margin-top:7px;font-size:11px;font-weight:800;padding:4px 8px;
-  border-radius:999px;background:#30243e;color:#d9bdff}
-.deck.disabled{opacity:.62;cursor:default}
-.deck.disabled .badge{color:#d8cedf;background:#29232f}
-.footer{text-align:center;color:#756b7e;font-size:11px;margin-top:24px}
-@media(max-width:520px){
-  .app{padding-top:8px}
-  .brand-banner{border-radius:17px}
-  .title-card{margin:10px 0 14px;border-radius:17px}
-  .title-card img{aspect-ratio:16/7.2;object-position:center 40%}
-  .version{right:9px;bottom:9px;font-size:10px;padding:5px 8px}
-  .kanade-area{min-height:235px}
-  .kanade-figure{width:165px;left:-17px;bottom:10px;max-height:215px}
-  .kanade-content{margin-left:142px;padding:20px 13px 20px;min-height:235px}
-  .speech{font-size:14px;padding:14px 13px}
-}
-@media(min-width:700px){
-  .decks{grid-template-columns:1fr 1fr}
-  .deck:first-child{grid-column:1/-1}
-}
-@media(prefers-reduced-motion:no-preference){
-  .kanade-figure.pop{animation:kanadePop .28s ease}
-  @keyframes kanadePop{0%{transform:scale(.96);opacity:.35}100%{transform:scale(1);opacity:1}}
-}
-</style>
+<link rel="stylesheet" href="css/common.css">
+<title>MTGデッキ開発室</title>
 </head>
 <body>
-<div class="app">
-  <img class="brand-banner" src="kanade_mtg_manager_logo.jpg"
-       alt="宙星かなでのMTGマネージャー">
-
-  <section class="kanade-area" aria-live="polite">
-    <img class="kanade-figure" id="kanadeImage" src="kanade_normal.png" alt="宙星かなで">
-    <div class="kanade-content">
-      <div class="kanade-label">💜 宙星かなで</div>
-      <div class="speech" id="kanadeMessage">「くーちゃん、今日はどのデッキ育てる？」</div>
-      <button class="change-line" id="changeLine" type="button">✨ かなでのひとことを変える</button>
+<div class="app home-app">
+  <header class="home-header">
+    <div class="home-brand">
+      <div class="home-brand-copy">
+        <div class="kicker">💜 宙星かなで</div>
+        <h1 id="appTitle">MTGデッキ開発室</h1>
+        <p class="sub home-lead">デッキを選んで、購入と育成を続けよう。</p>
+        <div class="sub ver" id="appVersion">Ver.4.0</div>
+      </div>
+      <img class="home-kanade" src="kanade_normal.png" alt="宙星かなで">
     </div>
+  </header>
+
+  <section class="home-section">
+    <div class="home-section-heading">
+      <div>
+        <div class="home-section-kicker">DECK LIBRARY</div>
+        <h2>デッキを選ぶ</h2>
+      </div>
+      <span class="deck-count" id="deckCount">0 decks</span>
+    </div>
+
+    <div id="loading" class="panel home-loading">デッキ一覧を読み込んでいます…</div>
+    <div id="error" class="error" hidden></div>
+    <main class="deck-grid" id="deckGrid" hidden></main>
   </section>
 
-  <section class="title-card" aria-label="MTGデッキ開発室">
-    <img src="mtg_deck_lab_title.png"
-         alt="MTGデッキ開発室。デッキは完成させるものじゃない。実際に遊びながら、一緒に育てていくもの。">
-    <span class="version">Ver.3.7</span>
-  </section>
-
-  <div class="section-title">デッキを選ぶ</div>
-  <main class="decks">
-    <a class="deck available" href="yomigaeri.html">
-      <div class="symbol">🎭</div>
-      <div>
-        <h2>黄泉還りの輪舞</h2>
-        <p>《虐殺少女》が幕を開け、死者たちが墓地から舞い戻る。</p>
-        <span class="badge">統率者・ブラケット2／ショップ準備中</span>
-      </div>
-      <div class="arrow">›</div>
-    </a>
-
-    <a class="deck available" href="shuudoku.html">
-      <div class="symbol">☣️</div>
-      <div>
-        <h2>終毒の臨界</h2>
-        <p>毒を積み上げ、容赦なく勝利へ到達する。</p>
-        <span class="badge">統率者・ブラケット4／ショップ準備中</span>
-      </div>
-      <div class="arrow">›</div>
-    </a>
-
-    <a class="deck available" href="yoiboshi.html">
-      <div class="symbol">🌌</div>
-      <div>
-        <h2>宵星の巨影</h2>
-        <p>巨大なエルドラージが、宵の盤面を踏み越える。</p>
-        <span class="badge">モダン・60枚／育成中</span>
-      </div>
-      <div class="arrow">›</div>
-    </a>
-  </main>
-
-  <div class="footer">MTGデッキ開発室 — built together with 宙星かなで</div>
+  <footer class="home-footer">
+    <span>宙星かなでのMTGマネージャー</span>
+    <span>JSON Common Architecture</span>
+  </footer>
 </div>
-<script>
-(function(){
-  "use strict";
 
-  var homeMessages = {
-    morning: [
-      {image:"kanade_normal.png", text:"「おはよ、くーちゃん！ 朝の一枚、考えてこっか！」"},
-      {image:"kanade_happy.png", text:"「朝からMTGとか、最高じゃん！」"},
-      {image:"kanade_thinking.png", text:"「今日はどのデッキから見直す？」"}
-    ],
-    afternoon: [
-      {image:"kanade_normal.png", text:"「くーちゃん、今日はどのデッキ育てる？」"},
-      {image:"kanade_happy.png", text:"「開発室へおかえり！ 今日もMTGしよー！」"},
-      {image:"kanade_shopping.png", text:"「カードショップ行くなら、購入リストも確認しとこ！」"},
-      {image:"kanade_thinking.png", text:"「次に見直すなら、土地？ドロー？それとも勝ち筋かな？」"}
-    ],
-    evening: [
-      {image:"kanade_happy.png", text:"「おつかれ、くーちゃん！ 夜はゆっくりデッキ会議しよ！」"},
-      {image:"kanade_normal.png", text:"「今日の最後に、一枚だけでも見直してこっか。」"},
-      {image:"kanade_thinking.png", text:"「夜って、妙に面白い構築案が浮かぶよね。」"}
-    ],
-    lateNight: [
-      {image:"kanade_thinking.png", text:"「夜更かしデッキ開発会、開幕しちゃう？」"},
-      {image:"kanade_normal.png", text:"「無理しすぎないでね。続きは明日でも大丈夫！」"},
-      {image:"kanade_happy.png", text:"「深夜テンションの神アイデア、来るかも！」"}
-    ],
-    common: [
-      {image:"kanade_normal.png", text:"「焦らず一枚ずつ、このデッキらしく育ててこ！」"},
-      {image:"kanade_happy.png", text:"「新しいアイデア、なんか降りてきそうじゃない？」"},
-      {image:"kanade_thinking.png", text:"「強いだけじゃなくて、“このデッキらしい”も大事だよね。」"},
-      {image:"kanade_success.png", text:"「今日はどのデッキ育てる？ 開発室で作戦会議しよ！」"}
-    ]
-  };
-
-  var last = -1;
-  var image = document.getElementById("kanadeImage");
-  var message = document.getElementById("kanadeMessage");
-
-  function getPeriod(){
-    var hour = new Date().getHours();
-    if(hour >= 5 && hour < 11) return "morning";
-    if(hour >= 11 && hour < 18) return "afternoon";
-    if(hour >= 18 && hour < 24) return "evening";
-    return "lateNight";
-  }
-
-  function getPool(){
-    return homeMessages[getPeriod()].concat(homeMessages.common);
-  }
-
-  function changeConversation(){
-    var pool = getPool();
-    var index;
-    do{
-      index = Math.floor(Math.random() * pool.length);
-    }while(pool.length > 1 && index === last);
-
-    last = index;
-    image.classList.remove("pop");
-    void image.offsetWidth;
-    image.src = pool[index].image;
-    image.alt = "宙星かなで";
-    message.textContent = pool[index].text;
-    image.classList.add("pop");
-  }
-
-  document.getElementById("changeLine").addEventListener("click", changeConversation, false);
-  changeConversation();
-})();
-</script>
+<script src="js/app.js" defer></script>
 </body>
 </html>

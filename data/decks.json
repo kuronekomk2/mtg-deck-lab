@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "app": {
+    "name": "MTGデッキ開発室",
+    "version": "4.0"
+  },
+  "decks": [
+    {
+      "id": "yomigaeri",
+      "name": "黄泉還りの輪舞",
+      "format": "Commander",
+      "symbol": "💀",
+      "file": "data/yomigaeri.json",
+      "pageTitle": "黄泉還りの輪舞",
+      "defaultMode": "shop",
+      "status": "growing"
+    },
+    {
+      "id": "shuudoku",
+      "name": "終毒の臨界",
+      "format": "Commander",
+      "symbol": "☣️",
+      "file": "data/shuudoku.json",
+      "pageTitle": "終毒の臨界",
+      "defaultMode": "shop",
+      "status": "growing"
+    },
+    {
+      "id": "yoiboshi",
+      "name": "宵星の巨影",
+      "format": "Modern",
+      "symbol": "🌌",
+      "file": "data/yoiboshi.json",
+      "pageTitle": "宵星の巨影",
+      "defaultMode": "growth",
+      "status": "growing"
+    }
+  ]
+}

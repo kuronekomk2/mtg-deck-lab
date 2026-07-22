@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "deck": {
+    "id": "yoiboshi",
+    "name": "宵星の巨影",
+    "nameEn": "Shadow of the Evening Star",
+    "format": "Modern",
+    "archetype": "赤緑エルドラージ",
+    "symbol": "🌌",
+    "commander": null,
+    "version": "4.0",
+    "defaultMode": "growth",
+    "status": "growing",
+    "totalCards": 60
+  },
+  "overview": {
+    "summary": "巨大なエルドラージを展開し、宵の盤面を踏み越える赤緑モダンデッキ。",
+    "concept": "《エルドラージの寺院》や《精神石》でマナを伸ばし、《難題の予見者》《現実を砕くもの》へつなげて盤面を押し切る。",
+    "stage": "全カード購入済み・実戦育成中",
+    "identity": "4ターン目前後の大型展開",
+    "identityNote": "速度と安定性を見ながら、土地配分と低マナ域の働きを実戦で調整する。"
+  },
+  "kanade": {
+    "image": "kanade_success.png",
+    "shoppingMessages": [
+      "「次の強化候補、INとOUTをセットで考えてこ！」",
+      "「買う前に、本当に今の弱点を埋める一枚か確認しよ！」"
+    ],
+    "growthMessages": [
+      "「全部揃ってる！ でも、ここからがデッキ育成の本番だよ！」",
+      "「4ターン目《難題の予見者》、今日も決めたいね！」",
+      "「さぁ、《宵星の巨影》の出番だよ！」",
+      "「土地バランス、今日の回り方もちゃんと見てこ。」",
+      "「《燃えがらの林間地》がタップインする場面、要チェックだね。」",
+      "「完成しても、遊ぶたびに新しい改善点は見つかるよ。」"
+    ]
+  },
+  "growth": {
+    "checkItems": [
+      {
+        "id": "redMana",
+        "label": "🔥 赤マナ不足"
+      },
+      {
+        "id": "landGood",
+        "label": "🌲 土地は安定"
+      },
+      {
+        "id": "drawLow",
+        "label": "📖 手札不足"
+      },
+      {
+        "id": "curveGood",
+        "label": "💥 展開が強かった"
+      }
+    ],
+    "memoPlaceholder": "例：4ターン目《難題の予見者》着地。タップインが少し気になった。"
+  },
+  "shop": {
+    "mode": "upgrade",
+    "description": "購入チェックではなく、入れ替え候補をIN／OUTの組で管理する。"
+  },
+  "sections": [
+    {
+      "id": "creatures",
+      "title": "クリーチャー",
+      "titleEn": "Creatures",
+      "cards": [
+        {
+          "id": "yoiboshi-000",
+          "qty": 2,
+          "jp": "終わりを告げるもの",
+          "en": "It That Heralds the End",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-001",
+          "qty": 4,
+          "jp": "まき散らす菌糸生物",
+          "en": "Sowing Mycospawn",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-002",
+          "qty": 4,
+          "jp": "難題の予見者",
+          "en": "Thought-Knot Seer",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-003",
+          "qty": 4,
+          "jp": "現実を砕くもの",
+          "en": "Reality Smasher",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-004",
+          "qty": 2,
+          "jp": "世界を壊すもの",
+          "en": "World Breaker",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-005",
+          "qty": 4,
+          "jp": "運命を貪るもの",
+          "en": "Devourer of Destiny",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-006",
+          "qty": 2,
+          "jp": "約束された終末、エムラクール",
+          "en": "Emrakul, the Promised End",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "instants",
+      "title": "インスタント",
+      "titleEn": "Instants",
+      "cards": [
+        {
+          "id": "yoiboshi-007",
+          "qty": 3,
+          "jp": "邪悪な熱気",
+          "en": "Unholy Heat",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-008",
+          "qty": 3,
+          "jp": "四肢切断",
+          "en": "Dismember",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "sorceries",
+      "title": "ソーサリー",
+      "titleEn": "Sorceries",
+      "cards": [
+        {
+          "id": "yoiboshi-009",
+          "qty": 4,
+          "jp": "古きものの活性",
+          "en": "Ancient Stirrings",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-010",
+          "qty": 4,
+          "jp": "邪悪鳴らし",
+          "en": "Malevolent Rumble",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-011",
+          "qty": 2,
+          "jp": "全ては塵",
+          "en": "All Is Dust",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "artifacts",
+      "title": "アーティファクト",
+      "titleEn": "Artifacts",
+      "cards": [
+        {
+          "id": "yoiboshi-012",
+          "qty": 4,
+          "jp": "精神石",
+          "en": "Mind Stone",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    },
+    {
+      "id": "lands",
+      "title": "土地",
+      "titleEn": "Lands",
+      "cards": [
+        {
+          "id": "yoiboshi-013",
+          "qty": 4,
+          "jp": "燃えがらの林間地",
+          "en": "Cinder Glade",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-014",
+          "qty": 4,
+          "jp": "エルドラージの寺院",
+          "en": "Eldrazi Temple",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-015",
+          "qty": 3,
+          "jp": "森",
+          "en": "Forest",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-016",
+          "qty": 4,
+          "jp": "カープルーザンの森",
+          "en": "Karplusan Forest",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-017",
+          "qty": 1,
+          "jp": "山",
+          "en": "Mountain",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        },
+        {
+          "id": "yoiboshi-018",
+          "qty": 2,
+          "jp": "踏み鳴らされる地",
+          "en": "Stomping Ground",
+          "priority": 0,
+          "owned": true,
+          "favorite": false,
+          "memo": ""
+        }
+      ]
+    }
+  ]
+}
