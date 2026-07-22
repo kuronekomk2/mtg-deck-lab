@@ -11,23 +11,31 @@
 </head>
 <body>
 <div class="app home-app">
-  <header class="home-header">
-    <div class="home-brand">
-      <div class="home-brand-copy">
-        <div class="kicker">💜 宙星かなで</div>
-        <h1 id="appTitle">MTGデッキ開発室</h1>
-        <p class="sub home-lead">デッキを選んで、購入と育成を続けよう。</p>
-        <div class="sub ver" id="appVersion">Ver.4.0</div>
+  <header class="home-welcome">
+    <img class="brand-banner" src="kanade_mtg_manager_logo.jpg"
+         alt="宙星かなでのMTGマネージャー">
+
+    <section class="home-kanade-area" aria-live="polite">
+      <img class="home-kanade-figure" id="kanadeImage" src="kanade_normal.png" alt="宙星かなで">
+      <div class="home-kanade-content">
+        <div class="home-kanade-label">💜 宙星かなで</div>
+        <div class="home-speech" id="kanadeMessage">「くーちゃん、今日はどのデッキ育てる？」</div>
+        <button class="home-change-line" id="changeLine" type="button">✨ かなでのひとことを変える</button>
       </div>
-      <img class="home-kanade" src="kanade_normal.png" alt="宙星かなで">
-    </div>
+    </section>
+
+    <section class="home-title-card" aria-label="MTGデッキ開発室">
+      <img src="mtg_deck_lab_title.png"
+           alt="MTGデッキ開発室。デッキは完成させるものじゃない。実際に遊びながら、一緒に育てていくもの。">
+      <span class="home-version" id="appVersion">Ver.4.0 RC1.1</span>
+    </section>
   </header>
 
   <section class="home-section">
     <div class="home-section-heading">
       <div>
         <div class="home-section-kicker">DECK LIBRARY</div>
-        <h2>デッキを選ぶ</h2>
+        <h1 id="appTitle">デッキを選ぶ</h1>
       </div>
       <span class="deck-count" id="deckCount">0 decks</span>
     </div>

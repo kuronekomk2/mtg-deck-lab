@@ -154,3 +154,74 @@ h1{font-size:25px;margin:8px 0 4px}
   .deck-tile{min-height:183px}
   .home-footer{flex-direction:column}
 }
+
+/* =========================================================
+   Home welcome restoration / Ver.4.0 RC1.1
+   ========================================================= */
+.home-welcome{margin-bottom:24px}
+.brand-banner{
+  width:100%;display:block;border-radius:24px;border:1px solid #735a75;
+  box-shadow:0 18px 42px rgba(0,0,0,.38);background:#080710
+}
+.home-kanade-area{
+  position:relative;overflow:hidden;margin-top:18px;min-height:260px;
+  border:1px solid #664775;border-radius:25px;
+  background:
+    radial-gradient(circle at 16% 18%,rgba(255,143,199,.19),transparent 28%),
+    linear-gradient(135deg,rgba(92,56,112,.5),rgba(35,25,48,.94));
+  box-shadow:0 14px 30px rgba(0,0,0,.2)
+}
+.home-kanade-figure{
+  position:absolute;left:-8px;bottom:12px;width:205px;max-height:250px;
+  object-fit:contain;object-position:left bottom;
+  filter:drop-shadow(0 12px 13px rgba(0,0,0,.28));
+  transition:opacity .18s ease,transform .18s ease
+}
+.home-kanade-content{
+  position:relative;margin-left:182px;padding:25px 18px 24px;min-height:260px;
+  display:flex;flex-direction:column;justify-content:center
+}
+.home-kanade-label{font-weight:900;color:#e7ccff;font-size:14px}
+.home-speech{
+  position:relative;margin-top:11px;padding:17px 16px;border-radius:19px;
+  background:rgba(250,247,252,.97);color:#291d31;font-size:16px;font-weight:800;
+  line-height:1.65;box-shadow:0 8px 20px rgba(0,0,0,.14)
+}
+.home-speech:before{
+  content:"";position:absolute;left:-13px;bottom:28px;border-width:10px 14px 10px 0;
+  border-style:solid;border-color:transparent rgba(250,247,252,.97) transparent transparent
+}
+.home-change-line{
+  align-self:flex-start;margin-top:16px;border:1px solid #806293;background:#2b2136;
+  color:#e8d5ff;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:850
+}
+.home-title-card{
+  position:relative;margin:18px 0 0;border:1px solid #735a75;border-radius:21px;
+  overflow:hidden;background:#0b0912;box-shadow:0 12px 28px rgba(0,0,0,.24)
+}
+.home-title-card img{
+  width:100%;display:block;aspect-ratio:16/6.8;object-fit:cover;object-position:center 42%
+}
+.home-version{
+  position:absolute;right:12px;bottom:12px;display:inline-block;padding:6px 10px;
+  border:1px solid rgba(232,189,103,.6);border-radius:999px;color:#fff2cf;
+  font-size:11px;font-weight:900;background:rgba(17,12,24,.78);
+  backdrop-filter:blur(8px);box-shadow:0 4px 14px rgba(0,0,0,.3)
+}
+@media(max-width:520px){
+  .brand-banner{border-radius:17px}
+  .home-kanade-area{min-height:235px;margin-top:14px}
+  .home-kanade-figure{width:165px;left:-17px;bottom:10px;max-height:215px}
+  .home-kanade-content{margin-left:142px;padding:20px 13px;min-height:235px}
+  .home-speech{font-size:14px;padding:14px 13px}
+  .home-title-card{margin-top:14px;border-radius:17px}
+  .home-title-card img{aspect-ratio:16/7.2;object-position:center 40%}
+  .home-version{right:9px;bottom:9px;font-size:10px;padding:5px 8px}
+}
+@media(prefers-reduced-motion:no-preference){
+  .home-kanade-figure.pop{animation:homeKanadePop .28s ease}
+  @keyframes homeKanadePop{
+    0%{transform:scale(.96);opacity:.35}
+    100%{transform:scale(1);opacity:1}
+  }
+}

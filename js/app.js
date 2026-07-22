@@ -2,10 +2,43 @@
   "use strict";
 
   const $ = (selector, root = document) => root.querySelector(selector);
+  let lastMessageIndex = -1;
+
+  const homeMessages = {
+    morning: [
+      { image: "kanade_normal.png", text: "「おはよ、くーちゃん！ 朝の一枚、考えてこっか！」" },
+      { image: "kanade_happy.png", text: "「朝からMTGとか、最高じゃん！」" },
+      { image: "kanade_thinking.png", text: "「今日はどのデッキから見直す？」" }
+    ],
+    afternoon: [
+      { image: "kanade_normal.png", text: "「くーちゃん、今日はどのデッキ育てる？」" },
+      { image: "kanade_happy.png", text: "「開発室へおかえり！ 今日もMTGしよー！」" },
+      { image: "kanade_shopping.png", text: "「カードショップ行くなら、購入リストも確認しとこ！」" },
+      { image: "kanade_thinking.png", text: "「次に見直すなら、土地？ ドロー？ それとも勝ち筋かな？」" }
+    ],
+    evening: [
+      { image: "kanade_happy.png", text: "「おつかれ、くーちゃん！ 夜はゆっくりデッキ会議しよ！」" },
+      { image: "kanade_normal.png", text: "「今日の最後に、一枚だけでも見直してこっか。」" },
+      { image: "kanade_thinking.png", text: "「夜って、妙に面白い構築案が浮かぶよね。」" }
+    ],
+    lateNight: [
+      { image: "kanade_thinking.png", text: "「夜更かしデッキ開発会、開幕しちゃう？」" },
+      { image: "kanade_normal.png", text: "「無理しすぎないでね。続きは明日でも大丈夫！」" },
+      { image: "kanade_happy.png", text: "「深夜テンションの神アイデア、来るかも！」" }
+    ],
+    common: [
+      { image: "kanade_normal.png", text: "「焦らず一枚ずつ、このデッキらしく育ててこ！」" },
+      { image: "kanade_happy.png", text: "「新しいアイデア、なんか降りてきそうじゃない？」" },
+      { image: "kanade_thinking.png", text: "「強いだけじゃなくて、“このデッキらしい”も大事だよね。」" },
+      { image: "kanade_success.png", text: "「今日はどのデッキ育てる？ 開発室で作戦会議しよ！」" }
+    ]
+  };
 
   document.addEventListener("DOMContentLoaded", init);
 
   async function init() {
+    setupKanadeMessage();
+
     try {
       const data = await fetchJson("data/decks.json");
       renderAppInfo(data.app || {});
@@ -24,6 +57,39 @@
     }
   }
 
+  function setupKanadeMessage() {
+    const button = $("#changeLine");
+    if (button) button.addEventListener("click", changeKanadeMessage);
+    changeKanadeMessage();
+  }
+
+  function getTimePeriod() {
+    const hour = new Date().getHours();
+    if (hour >= 5 && hour < 11) return "morning";
+    if (hour >= 11 && hour < 18) return "afternoon";
+    if (hour >= 18 && hour < 24) return "evening";
+    return "lateNight";
+  }
+
+  function changeKanadeMessage() {
+    const image = $("#kanadeImage");
+    const message = $("#kanadeMessage");
+    if (!image || !message) return;
+
+    const pool = [...homeMessages[getTimePeriod()], ...homeMessages.common];
+    let index;
+    do {
+      index = Math.floor(Math.random() * pool.length);
+    } while (pool.length > 1 && index === lastMessageIndex);
+
+    lastMessageIndex = index;
+    image.classList.remove("pop");
+    void image.offsetWidth;
+    image.src = pool[index].image;
+    message.textContent = pool[index].text;
+    image.classList.add("pop");
+  }
+
   async function fetchJson(path) {
     const response = await fetch(path, { cache: "no-store" });
     if (!response.ok) {
@@ -33,13 +99,7 @@
   }
 
   function renderAppInfo(app) {
-    if (app.name) {
-      $("#appTitle").textContent = app.name;
-      document.title = app.name;
-    }
-    if (app.version) {
-      $("#appVersion").textContent = `Ver.${app.version}`;
-    }
+    if (app.name) document.title = app.name;
   }
 
   function renderDecks(decks) {
