@@ -26,7 +26,7 @@ h1{font-size:25px;margin:8px 0 4px}
 .mode-tab{min-height:46px;border:0;border-radius:12px;background:transparent;color:var(--muted);font-weight:900}
 .mode-tab.active{color:var(--text);background:var(--panel2)}
 .mode-panel{display:none}.mode-panel.active{display:block}
-.kanade-guide{display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:end;min-height:130px;
+.kanade-guide{display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:end;min-height:110px;
   margin:14px 0 18px;padding:12px;border-radius:20px;overflow:hidden}
 .kanade-guide img{width:112px;height:145px;object-fit:contain;object-position:center bottom;margin-bottom:-12px}
 .kanade-guide-name{font-size:12px;font-weight:900;color:#dfc3ff;margin-bottom:7px}
