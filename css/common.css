@@ -28,6 +28,8 @@ h1{font-size:25px;margin:8px 0 4px}
 .mode-panel{display:none}.mode-panel.active{display:block}
 .kanade-guide{display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:end;min-height:90px;
   margin:14px 0 18px;padding:12px;border-radius:20px;overflow:hidden}
+.kanade-guide-inner{grid-column:1/-1;display:grid;grid-template-columns:110px 1fr;gap:8px;
+  align-items:end;transform:translateY(-5px)}
 .kanade-guide img{width:112px;height:145px;object-fit:contain;object-position:center bottom;margin-bottom:-12px}
 .kanade-guide-name{font-size:12px;font-weight:900;color:#dfc3ff;margin-bottom:7px}
 .kanade-bubble{background:#faf7fc;color:#291d31;border-radius:16px;padding:13px;font-size:14px;line-height:1.55;font-weight:800}
@@ -64,6 +66,7 @@ h1{font-size:25px;margin:8px 0 4px}
   .tools,.growth-grid,.check-grid{grid-template-columns:1fr}
   .growth-card.wide{grid-column:auto}
   .kanade-guide{grid-template-columns:95px 1fr}
+  .kanade-guide-inner{grid-template-columns:95px 1fr}
   .kanade-guide img{width:100px;height:138px}
   .kanade-bubble{font-size:13px}
 }
