@@ -249,8 +249,56 @@
       const source = state.cards.find(item => (item.id || `${item.en}-${item.jp}`) === card.dataset.cardId);
       owned += Number(source?.qty || 1);
     });
+    const percentage = total ? Math.round(owned * 100 / total) : 0;
     $("#progressText").textContent = `${owned} / ${total}`;
-    $("#fill").style.width = `${total ? Math.min(100, owned / total * 100) : 0}%`;
+    $("#fill").style.width = `${Math.min(100, percentage)}%`;
+    updateShopKanade(owned, total, percentage);
+  }
+
+  function updateShopKanade(owned, total, percentage) {
+    const image = $("#deckKanadeImageShop");
+    const message = $("#deckKanadeMessageShop");
+    if (!image || !message) return;
+
+    let choices;
+    if (owned === 0) {
+      image.src = "kanade_shopping.png";
+      choices = state.deckId === "yomigaeri"
+        ? [
+            "「まずは欲しい役者を確認！ ショップ準備は任せて！」",
+            "「《黄泉還りの輪舞》の幕開けに必要なカード、集めに行こ！」"
+          ]
+        : [
+            "「まずは毒の起点と増殖エンジンから確認しよ！」",
+            "「ショップで見つけたら、優先度も忘れずチェックね！」"
+          ];
+    } else if (owned >= total) {
+      image.src = "kanade_success.png";
+      choices = [
+        "「全カード購入完了！ 役者が揃ったね！！」",
+        "「やったじゃん、くーちゃん！ あとは実戦で育てるだけ！」"
+      ];
+    } else if (percentage >= 75) {
+      image.src = "kanade_happy.png";
+      choices = [
+        "「あと少し！ 完成がかなり見えてきたね！」",
+        "「いい感じ！ 仕上がってきたじゃん！」"
+      ];
+    } else if (percentage >= 35) {
+      image.src = "kanade_happy.png";
+      choices = [
+        "「いい感じに集まってきた！ この調子でいこー！」",
+        "「デッキの形、だいぶ見えてきたね！」"
+      ];
+    } else {
+      image.src = "kanade_thinking.png";
+      choices = [
+        "「優先度を見ながら、必要なカードから集めてこっか。」",
+        "「勝ち筋とデッキらしさ、両方大事にしよ！」"
+      ];
+    }
+
+    message.textContent = choices[Math.floor(Math.random() * choices.length)];
   }
 
   async function copyDeckList() {
