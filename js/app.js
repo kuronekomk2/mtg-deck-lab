@@ -2,42 +2,51 @@
   "use strict";
 
   const $ = (selector, root = document) => root.querySelector(selector);
-  let lastMessageIndex = -1;
 
-  const homeMessages = {
+  const welcomeImages = [
+    "kanade_normal.png",
+    "kanade_happy.png",
+    "kanade_thinking.png",
+    "kanade_shopping.png",
+    "kanade_success.png"
+  ];
+
+  const messages = {
     morning: [
-      { image: "kanade_normal.png", text: "「おはよ、くーちゃん！ 朝の一枚、考えてこっか！」" },
-      { image: "kanade_happy.png", text: "「朝からMTGとか、最高じゃん！」" },
-      { image: "kanade_thinking.png", text: "「今日はどのデッキから見直す？」" }
+      "おはよう、くーちゃん！ 朝のひらめき、デッキに残しておこっか！",
+      "今日もいい一日にしよ！ まずはお気に入りのデッキを見てみよう✨",
+      "朝からデッキ開発、いいじゃん！ かなでも一緒に考えるよ！"
     ],
     afternoon: [
-      { image: "kanade_normal.png", text: "「くーちゃん、今日はどのデッキ育てる？」" },
-      { image: "kanade_happy.png", text: "「開発室へおかえり！ 今日もMTGしよー！」" },
-      { image: "kanade_shopping.png", text: "「カードショップ行くなら、購入リストも確認しとこ！」" },
-      { image: "kanade_thinking.png", text: "「次に見直すなら、土地？ ドロー？ それとも勝ち筋かな？」" }
+      "おつかれさま、くーちゃん！ ちょっとだけデッキを育てていこっか！",
+      "今日はどのデッキに会いに行く？ かなで、楽しみにしてたよ！",
+      "カード一枚の入れ替えでも立派な前進！ 焦らず育てようね。"
     ],
     evening: [
-      { image: "kanade_happy.png", text: "「おつかれ、くーちゃん！ 夜はゆっくりデッキ会議しよ！」" },
-      { image: "kanade_normal.png", text: "「今日の最後に、一枚だけでも見直してこっか。」" },
-      { image: "kanade_thinking.png", text: "「夜って、妙に面白い構築案が浮かぶよね。」" }
+      "おかえり、くーちゃん！ 今日も一緒にデッキを育てようね！",
+      "一日の終わりにデッキを眺める時間、かなでは結構好きだよ💜",
+      "今日の対戦や一人回し、気付いたことがあったら残しておこう！"
     ],
     lateNight: [
-      { image: "kanade_thinking.png", text: "「夜更かしデッキ開発会、開幕しちゃう？」" },
-      { image: "kanade_normal.png", text: "「無理しすぎないでね。続きは明日でも大丈夫！」" },
-      { image: "kanade_happy.png", text: "「深夜テンションの神アイデア、来るかも！」" }
+      "夜更かしデッキ開発だね…！ 無理しすぎない範囲で楽しもう🌙",
+      "静かな夜は構築が捗るけど、ちゃんと休憩もしてね、くーちゃん。",
+      "あと一枚だけ考えたら今日はおしまい！ ……たぶんね？"
     ],
     common: [
-      { image: "kanade_normal.png", text: "「焦らず一枚ずつ、このデッキらしく育ててこ！」" },
-      { image: "kanade_happy.png", text: "「新しいアイデア、なんか降りてきそうじゃない？」" },
-      { image: "kanade_thinking.png", text: "「強いだけじゃなくて、“このデッキらしい”も大事だよね。」" },
-      { image: "kanade_success.png", text: "「今日はどのデッキ育てる？ 開発室で作戦会議しよ！」" }
+      "ショップで見つけたいカード、優先度を確認しておこう！",
+      "完成したデッキも、遊ぶたびにまた育っていくんだよね。",
+      "迷った時はコンセプトに戻ろう。好きな動きが一番大事！",
+      "くーちゃんのデッキ、今日も少しずつ強くしていこう！",
+      "かなではいつでもここにいるよ。さて、どのデッキから見る？"
     ]
   };
+
+  let lastMessage = "";
 
   document.addEventListener("DOMContentLoaded", init);
 
   async function init() {
-    setupKanadeMessage();
+    setupWelcome();
 
     try {
       const data = await fetchJson("data/decks.json");
@@ -57,37 +66,38 @@
     }
   }
 
-  function setupKanadeMessage() {
-    const button = $("#changeLine");
-    if (button) button.addEventListener("click", changeKanadeMessage);
-    changeKanadeMessage();
+  function setupWelcome() {
+    showRandomWelcome();
+    $("#changeWelcome")?.addEventListener("click", showRandomWelcome);
   }
 
-  function getTimePeriod() {
+  function showRandomWelcome() {
+    const pool = [...messages[timePeriod()], ...messages.common];
+    const candidates = pool.filter(message => message !== lastMessage);
+    const message = randomItem(candidates.length ? candidates : pool);
+    lastMessage = message;
+
+    const messageNode = $("#welcomeMessage");
+    const imageNode = $("#welcomeKanade");
+    if (messageNode) messageNode.textContent = message;
+    if (imageNode) {
+      imageNode.classList.remove("welcome-pop");
+      void imageNode.offsetWidth;
+      imageNode.src = randomItem(welcomeImages);
+      imageNode.classList.add("welcome-pop");
+    }
+  }
+
+  function timePeriod() {
     const hour = new Date().getHours();
     if (hour >= 5 && hour < 11) return "morning";
-    if (hour >= 11 && hour < 18) return "afternoon";
-    if (hour >= 18 && hour < 24) return "evening";
+    if (hour >= 11 && hour < 17) return "afternoon";
+    if (hour >= 17 && hour < 24) return "evening";
     return "lateNight";
   }
 
-  function changeKanadeMessage() {
-    const image = $("#kanadeImage");
-    const message = $("#kanadeMessage");
-    if (!image || !message) return;
-
-    const pool = [...homeMessages[getTimePeriod()], ...homeMessages.common];
-    let index;
-    do {
-      index = Math.floor(Math.random() * pool.length);
-    } while (pool.length > 1 && index === lastMessageIndex);
-
-    lastMessageIndex = index;
-    image.classList.remove("pop");
-    void image.offsetWidth;
-    image.src = pool[index].image;
-    message.textContent = pool[index].text;
-    image.classList.add("pop");
+  function randomItem(items) {
+    return items[Math.floor(Math.random() * items.length)];
   }
 
   async function fetchJson(path) {
@@ -100,6 +110,7 @@
 
   function renderAppInfo(app) {
     if (app.name) document.title = app.name;
+    if (app.version) $("#appVersion").textContent = `Ver.${app.version}`;
   }
 
   function renderDecks(decks) {
@@ -117,9 +128,7 @@
       return;
     }
 
-    decks.forEach((deck, index) => {
-      grid.appendChild(createDeckCard(deck, index));
-    });
+    decks.forEach((deck, index) => grid.appendChild(createDeckCard(deck, index)));
   }
 
   function createDeckCard(deck, index) {
@@ -151,22 +160,13 @@
   }
 
   function statusText(status) {
-    const labels = {
-      growing: "育成中",
-      complete: "完成",
-      planning: "構築中",
-      archived: "保管"
-    };
+    const labels = { growing: "育成中", complete: "完成", planning: "構築中", archived: "保管" };
     return labels[status] || "育成中";
   }
 
   function escapeHtml(value) {
     return String(value ?? "").replace(/[&<>"']/g, char => ({
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      '"': "&quot;",
-      "'": "&#039;"
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
     })[char]);
   }
 })();

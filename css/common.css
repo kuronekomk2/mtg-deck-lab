@@ -156,72 +156,69 @@ h1{font-size:25px;margin:8px 0 4px}
 }
 
 /* =========================================================
-   Home welcome restoration / Ver.4.0 RC1.1
+   Home welcome / Ver.4.0 RC1.2
    ========================================================= */
-.home-welcome{margin-bottom:24px}
-.brand-banner{
-  width:100%;display:block;border-radius:24px;border:1px solid #735a75;
-  box-shadow:0 18px 42px rgba(0,0,0,.38);background:#080710
+.home-welcome{display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
+.manager-logo{
+  display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:22px;
+  box-shadow:0 12px 30px rgba(0,0,0,.25)
 }
-.home-kanade-area{
-  position:relative;overflow:hidden;margin-top:18px;min-height:260px;
-  border:1px solid #664775;border-radius:25px;
-  background:
-    radial-gradient(circle at 16% 18%,rgba(255,143,199,.19),transparent 28%),
-    linear-gradient(135deg,rgba(92,56,112,.5),rgba(35,25,48,.94));
-  box-shadow:0 14px 30px rgba(0,0,0,.2)
+.welcome-card{
+  min-height:190px;display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;
+  align-items:end;padding:14px 16px 14px 10px;border:1px solid var(--line);border-radius:23px;
+  overflow:hidden;background:
+    radial-gradient(circle at 14% 18%,rgba(197,156,255,.16),transparent 34%),
+    linear-gradient(145deg,#21182b,#17121e);
+  box-shadow:0 12px 30px rgba(0,0,0,.22)
 }
-.home-kanade-figure{
-  position:absolute;left:-8px;bottom:12px;width:205px;max-height:250px;
-  object-fit:contain;object-position:left bottom;
-  filter:drop-shadow(0 12px 13px rgba(0,0,0,.28));
-  transition:opacity .18s ease,transform .18s ease
+.welcome-kanade-wrap{align-self:stretch;display:flex;align-items:flex-end;justify-content:center;min-width:0}
+.welcome-kanade{
+  display:block;width:124px;height:176px;object-fit:contain;object-position:center bottom;
+  margin-bottom:-14px;filter:drop-shadow(0 9px 12px rgba(0,0,0,.32))
 }
-.home-kanade-content{
-  position:relative;margin-left:182px;padding:25px 18px 24px;min-height:260px;
-  display:flex;flex-direction:column;justify-content:center
+.welcome-talk{min-width:0;align-self:center;max-width:92%}
+.welcome-name{margin:0 0 7px 4px;font-size:12px;font-weight:900;color:#dfc3ff}
+.welcome-bubble{
+  position:relative;width:100%;padding:14px 15px;border-radius:17px;background:#faf7fc;
+  color:#291d31;box-shadow:0 6px 16px rgba(0,0,0,.16)
 }
-.home-kanade-label{font-weight:900;color:#e7ccff;font-size:14px}
-.home-speech{
-  position:relative;margin-top:11px;padding:17px 16px;border-radius:19px;
-  background:rgba(250,247,252,.97);color:#291d31;font-size:16px;font-weight:800;
-  line-height:1.65;box-shadow:0 8px 20px rgba(0,0,0,.14)
+.welcome-bubble:before{
+  content:"";position:absolute;left:-10px;top:29px;border-top:9px solid transparent;
+  border-bottom:9px solid transparent;border-right:12px solid #faf7fc
 }
-.home-speech:before{
-  content:"";position:absolute;left:-13px;bottom:28px;border-width:10px 14px 10px 0;
-  border-style:solid;border-color:transparent rgba(250,247,252,.97) transparent transparent
+.welcome-bubble p{margin:0;font-size:14px;line-height:1.65;font-weight:850}
+.welcome-change{
+  display:block;margin:9px 0 0 auto;padding:8px 11px;border:1px solid var(--line);
+  border-radius:12px;background:rgba(19,14,25,.72);color:#e8d8f2;font-size:11px;font-weight:850
 }
-.home-change-line{
-  align-self:flex-start;margin-top:16px;border:1px solid #806293;background:#2b2136;
-  color:#e8d5ff;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:850
-}
-.home-title-card{
-  position:relative;margin:18px 0 0;border:1px solid #735a75;border-radius:21px;
-  overflow:hidden;background:#0b0912;box-shadow:0 12px 28px rgba(0,0,0,.24)
-}
-.home-title-card img{
-  width:100%;display:block;aspect-ratio:16/6.8;object-fit:cover;object-position:center 42%
-}
-.home-version{
-  position:absolute;right:12px;bottom:12px;display:inline-block;padding:6px 10px;
-  border:1px solid rgba(232,189,103,.6);border-radius:999px;color:#fff2cf;
-  font-size:11px;font-weight:900;background:rgba(17,12,24,.78);
-  backdrop-filter:blur(8px);box-shadow:0 4px 14px rgba(0,0,0,.3)
+.welcome-change:hover{border-color:#705b81;background:#251d30}
+.deck-lab-title-wrap{text-align:center;margin:0 0 15px}
+.deck-lab-title{display:block;width:min(100%,620px);height:auto;margin:0 auto}
+.deck-lab-title-wrap .ver{margin-top:7px}
+.home-section{margin-top:0}
+.home-section-heading{padding-top:15px}
+.home-section-heading h1{font-size:20px;margin:3px 0 0}
+.welcome-pop{animation:welcomePop .3s ease}
+@keyframes welcomePop{
+  0%{opacity:.35;transform:translateY(5px) scale(.985)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
 }
 @media(max-width:520px){
-  .brand-banner{border-radius:17px}
-  .home-kanade-area{min-height:235px;margin-top:14px}
-  .home-kanade-figure{width:165px;left:-17px;bottom:10px;max-height:215px}
-  .home-kanade-content{margin-left:142px;padding:20px 13px;min-height:235px}
-  .home-speech{font-size:14px;padding:14px 13px}
-  .home-title-card{margin-top:14px;border-radius:17px}
-  .home-title-card img{aspect-ratio:16/7.2;object-position:center 40%}
-  .home-version{right:9px;bottom:9px;font-size:10px;padding:5px 8px}
+  .home-app{padding-top:14px}
+  .home-welcome{gap:10px;margin-bottom:19px}
+  .manager-logo{border-radius:18px}
+  .welcome-card{min-height:170px;grid-template-columns:100px minmax(0,1fr);gap:9px;padding:12px 12px 12px 5px}
+  .welcome-kanade{width:98px;height:150px;margin-bottom:-12px}
+  .welcome-talk{max-width:94%}
+  .welcome-name{font-size:11px;margin-left:3px}
+  .welcome-bubble{padding:12px 13px;border-radius:15px}
+  .welcome-bubble:before{left:-8px;top:27px;border-top-width:8px;border-bottom-width:8px;border-right-width:10px}
+  .welcome-bubble p{font-size:12.5px;line-height:1.6}
+  .welcome-change{font-size:10px;padding:7px 9px;margin-top:8px}
+  .deck-lab-title-wrap{margin-bottom:12px}
 }
-@media(prefers-reduced-motion:no-preference){
-  .home-kanade-figure.pop{animation:homeKanadePop .28s ease}
-  @keyframes homeKanadePop{
-    0%{transform:scale(.96);opacity:.35}
-    100%{transform:scale(1);opacity:1}
-  }
+@media(max-width:360px){
+  .welcome-card{grid-template-columns:88px minmax(0,1fr)}
+  .welcome-kanade{width:88px;height:142px}
+  .welcome-bubble p{font-size:12px}
 }

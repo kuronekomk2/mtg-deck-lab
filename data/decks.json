@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "app": {
     "name": "MTGデッキ開発室",
-    "version": "4.0 RC1.1"
+    "version": "4.0 RC1.2"
   },
   "decks": [
     {
