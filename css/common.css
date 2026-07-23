@@ -211,7 +211,7 @@ h1{font-size:25px;margin:8px 0 4px}
   .home-welcome{gap:10px;margin-bottom:19px}
   .manager-logo{border-radius:18px}
   .welcome-card{min-height:465px;grid-template-columns:1fr;gap:4px;padding:12px}
-  .welcome-kanade{position:relative;top:-8px;width:245px;height:245px;margin-bottom:0}
+  .welcome-kanade{position:relative;top:-26px;width:245px;height:245px;margin-bottom:0}
   .welcome-talk{width:calc(100% - 24px);max-width:none;justify-self:center;transform:translateX(8px)}
   .welcome-name{font-size:11px;margin-left:3px}
   .welcome-bubble{padding:12px 13px;border-radius:15px}
