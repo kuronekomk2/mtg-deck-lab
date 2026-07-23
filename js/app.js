@@ -110,7 +110,7 @@
 
   function renderAppInfo(app) {
     if (app.name) document.title = app.name;
-    if (app.version) $("#appVersion").textContent = `Version ${app.version}`;
+    if (app.version) $("#appVersion").textContent = `Ver.${app.version}`;
   }
 
   function renderDecks(decks) {

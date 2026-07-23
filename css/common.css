@@ -139,13 +139,12 @@ h1{font-size:25px;margin:8px 0 4px}
   border-radius:20px;color:var(--muted);line-height:1.8
 }
 .home-footer{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
-  margin-top:30px;padding:22px 4px 6px;border-top:1px solid var(--line);
-  color:#9d90a7;text-align:center
+  display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:30px;padding:20px 4px 6px;
+  border-top:1px solid var(--line);text-align:center;color:#8f8298
 }
-.home-footer-version{font-size:11px;letter-spacing:.08em}
-.home-footer-signature{font-size:11px;line-height:1.55;color:#81758a}
-.home-footer-signature strong{color:#cdb4dd;font-weight:900}
+.footer-version{font-size:11px;letter-spacing:.04em;color:#a99bb3}
+.footer-made{margin-top:5px;font-size:10px;color:#81758a}
+.footer-name{font-size:12px;font-weight:900;color:#cdb0e8;letter-spacing:.04em}
 @keyframes deckTileIn{
   from{opacity:0;transform:translateY(8px)}
   to{opacity:1;transform:translateY(0)}
@@ -156,10 +155,11 @@ h1{font-size:25px;margin:8px 0 4px}
   .home-kanade{right:-4px;width:130px;height:180px}
   .deck-grid{grid-template-columns:1fr}
   .deck-tile{min-height:183px}
+  .home-footer{margin-top:28px}
 }
 
 /* =========================================================
-   Home welcome / Ver.4.0 RC1.3
+   Home welcome / Ver.4.0 RC1.3 Final
    ========================================================= */
 .home-welcome{display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
 .manager-logo{
@@ -167,7 +167,7 @@ h1{font-size:25px;margin:8px 0 4px}
   box-shadow:0 12px 30px rgba(0,0,0,.25)
 }
 .welcome-card{
-  min-height:190px;display:grid;grid-template-columns:148px minmax(0,1fr);gap:14px;
+  min-height:190px;display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;
   align-items:end;padding:14px 16px 14px 10px;border:1px solid var(--line);border-radius:23px;
   overflow:hidden;background:
     radial-gradient(circle at 14% 18%,rgba(197,156,255,.16),transparent 34%),
@@ -176,7 +176,7 @@ h1{font-size:25px;margin:8px 0 4px}
 }
 .welcome-kanade-wrap{align-self:stretch;display:flex;align-items:flex-end;justify-content:center;min-width:0}
 .welcome-kanade{
-  display:block;width:142px;height:190px;object-fit:contain;object-position:center bottom;
+  display:block;width:124px;height:176px;object-fit:contain;object-position:center bottom;
   margin-bottom:-14px;filter:drop-shadow(0 9px 12px rgba(0,0,0,.32))
 }
 .welcome-talk{min-width:0;align-self:center;max-width:92%}
@@ -210,9 +210,9 @@ h1{font-size:25px;margin:8px 0 4px}
   .home-app{padding-top:14px}
   .home-welcome{gap:10px;margin-bottom:19px}
   .manager-logo{border-radius:18px}
-  .welcome-card{min-height:170px;grid-template-columns:118px minmax(0,1fr);gap:9px;padding:12px 12px 12px 5px}
-  .welcome-kanade{width:116px;height:166px;margin-bottom:-12px}
-  .welcome-talk{max-width:94%}
+  .welcome-card{min-height:210px;grid-template-columns:148px minmax(0,1fr);gap:8px;padding:12px 12px 12px 4px}
+  .welcome-kanade{width:150px;height:205px;margin-bottom:-7px}
+  .welcome-talk{max-width:96%;transform:translateX(4px)}
   .welcome-name{font-size:11px;margin-left:3px}
   .welcome-bubble{padding:12px 13px;border-radius:15px}
   .welcome-bubble:before{left:-8px;top:27px;border-top-width:8px;border-bottom-width:8px;border-right-width:10px}
@@ -221,7 +221,8 @@ h1{font-size:25px;margin:8px 0 4px}
   .deck-lab-title-wrap{margin-bottom:12px}
 }
 @media(max-width:360px){
-  .welcome-card{grid-template-columns:103px minmax(0,1fr)}
-  .welcome-kanade{width:102px;height:156px}
+  .welcome-card{min-height:198px;grid-template-columns:130px minmax(0,1fr);gap:6px}
+  .welcome-kanade{width:132px;height:192px;margin-bottom:-6px}
+  .welcome-talk{transform:translateX(2px)}
   .welcome-bubble p{font-size:12px}
 }
