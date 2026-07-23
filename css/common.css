@@ -139,9 +139,12 @@ h1{font-size:25px;margin:8px 0 4px}
   border-radius:20px;color:var(--muted);line-height:1.8
 }
 .home-footer{
-  display:flex;justify-content:space-between;gap:10px;margin-top:26px;padding:16px 4px 4px;
-  border-top:1px solid var(--line);color:#81758a;font-size:10px
+  display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:30px;padding:20px 4px 6px;
+  border-top:1px solid var(--line);text-align:center;color:#8f8298
 }
+.footer-version{font-size:11px;letter-spacing:.04em;color:#a99bb3}
+.footer-made{margin-top:5px;font-size:10px;color:#81758a}
+.footer-name{font-size:12px;font-weight:900;color:#cdb0e8;letter-spacing:.04em}
 @keyframes deckTileIn{
   from{opacity:0;transform:translateY(8px)}
   to{opacity:1;transform:translateY(0)}
@@ -152,11 +155,11 @@ h1{font-size:25px;margin:8px 0 4px}
   .home-kanade{right:-4px;width:130px;height:180px}
   .deck-grid{grid-template-columns:1fr}
   .deck-tile{min-height:183px}
-  .home-footer{flex-direction:column}
+  .home-footer{margin-top:28px}
 }
 
 /* =========================================================
-   Home welcome / Ver.4.0 RC1.2
+   Home welcome / Ver.4.0 RC1.3
    ========================================================= */
 .home-welcome{display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
 .manager-logo{
@@ -207,8 +210,8 @@ h1{font-size:25px;margin:8px 0 4px}
   .home-app{padding-top:14px}
   .home-welcome{gap:10px;margin-bottom:19px}
   .manager-logo{border-radius:18px}
-  .welcome-card{min-height:170px;grid-template-columns:100px minmax(0,1fr);gap:9px;padding:12px 12px 12px 5px}
-  .welcome-kanade{width:98px;height:150px;margin-bottom:-12px}
+  .welcome-card{min-height:184px;grid-template-columns:118px minmax(0,1fr);gap:9px;padding:12px 12px 12px 4px}
+  .welcome-kanade{width:116px;height:168px;margin-bottom:-12px}
   .welcome-talk{max-width:94%}
   .welcome-name{font-size:11px;margin-left:3px}
   .welcome-bubble{padding:12px 13px;border-radius:15px}
@@ -218,7 +221,7 @@ h1{font-size:25px;margin:8px 0 4px}
   .deck-lab-title-wrap{margin-bottom:12px}
 }
 @media(max-width:360px){
-  .welcome-card{grid-template-columns:88px minmax(0,1fr)}
-  .welcome-kanade{width:88px;height:142px}
+  .welcome-card{grid-template-columns:104px minmax(0,1fr)}
+  .welcome-kanade{width:102px;height:158px}
   .welcome-bubble p{font-size:12px}
 }
