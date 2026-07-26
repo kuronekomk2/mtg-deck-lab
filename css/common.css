@@ -1,6 +1,7 @@
 :root{
   --bg:#0f0c14;--panel:#1d1726;--panel2:#251d30;--line:#443650;
   --text:#faf7fc;--muted:#bdb1c6;--accent:#c59cff;--ok:#8ce3b3;
+  --kanade-room-background:url("../kanaderoom.png");
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);
@@ -177,9 +178,9 @@ h1{font-size:25px;margin:8px 0 4px}
 .welcome-card{
   position:relative;display:grid;grid-template-columns:1fr;gap:0;
   align-items:stretch;padding:46px 14px 18px;border:1px solid var(--line);border-radius:20px;
-  overflow:hidden;background:
-    radial-gradient(circle at 14% 18%,rgba(197,156,255,.16),transparent 34%),
-    linear-gradient(145deg,#21182b,#17121e);
+  overflow:hidden;background-color:#21182b;
+  background-image:linear-gradient(rgba(15,12,20,.12),rgba(15,12,20,.2)),var(--kanade-room-background);
+  background-position:center;background-repeat:no-repeat;background-size:auto 100%;
   box-shadow:0 12px 30px rgba(0,0,0,.22)
 }
 .kanade-room-stage{
