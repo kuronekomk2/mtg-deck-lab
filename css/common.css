@@ -167,7 +167,7 @@ h1{font-size:25px;margin:8px 0 4px}
 }
 
 /* =========================================================
-   Home welcome / Ver.4.0 RC1.3 Final
+   Home welcome / Ver.4.1 development
    ========================================================= */
 .home-welcome{display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
 .manager-logo{
@@ -175,34 +175,45 @@ h1{font-size:25px;margin:8px 0 4px}
   box-shadow:0 12px 30px rgba(0,0,0,.25)
 }
 .welcome-card{
-  min-height:190px;display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;
-  align-items:end;padding:14px 16px 14px 10px;border:1px solid var(--line);border-radius:23px;
+  position:relative;display:grid;grid-template-columns:1fr;gap:0;
+  align-items:stretch;padding:46px 14px 18px;border:1px solid var(--line);border-radius:20px;
   overflow:hidden;background:
     radial-gradient(circle at 14% 18%,rgba(197,156,255,.16),transparent 34%),
     linear-gradient(145deg,#21182b,#17121e);
   box-shadow:0 12px 30px rgba(0,0,0,.22)
 }
-.welcome-kanade-wrap{align-self:stretch;display:flex;align-items:flex-end;justify-content:center;min-width:0}
-.welcome-kanade{
-  display:block;width:124px;height:176px;object-fit:contain;object-position:center bottom;
-  margin-bottom:-14px;filter:drop-shadow(0 9px 12px rgba(0,0,0,.32))
+.kanade-room-stage{
+  position:relative;min-width:0;min-height:306px;display:flex;align-items:flex-end;
+  justify-content:center;margin-bottom:16px
 }
-.welcome-talk{min-width:0;align-self:center;max-width:92%}
-.welcome-name{margin:0 0 7px 4px;font-size:12px;font-weight:900;color:#dfc3ff}
+.welcome-kanade-wrap{
+  min-width:0;width:100%;height:100%;display:flex;align-items:flex-end;justify-content:center
+}
+.welcome-kanade{
+  display:block;width:min(100%,306px);height:306px;object-fit:contain;object-position:center bottom;
+  transform:translateY(12px);filter:drop-shadow(0 9px 12px rgba(0,0,0,.32))
+}
+.welcome-talk{min-width:0;width:100%;max-width:660px;align-self:center;justify-self:center}
+.welcome-name{margin:0 0 6px 3px;font-size:11px;font-weight:900;color:#dfc3ff}
 .welcome-bubble{
-  position:relative;width:100%;padding:14px 15px;border-radius:17px;background:#faf7fc;
+  position:relative;width:100%;padding:14px 13px;border-radius:15px;background:#faf7fc;
   color:#291d31;box-shadow:0 6px 16px rgba(0,0,0,.16)
 }
 .welcome-bubble:before{
-  content:"";position:absolute;left:-10px;top:29px;border-top:9px solid transparent;
-  border-bottom:9px solid transparent;border-right:12px solid #faf7fc
+  content:"";position:absolute;left:calc(50% - 10px);top:-12px;border:0;
+  border-left:10px solid transparent;border-right:10px solid transparent;
+  border-bottom:12px solid #faf7fc
 }
-.welcome-bubble p{margin:0;font-size:14px;line-height:1.65;font-weight:850}
+.welcome-bubble p{margin:0;font-size:13px;line-height:1.6;font-weight:850}
 .welcome-change{
-  display:block;margin:9px 0 0 auto;padding:8px 11px;border:1px solid var(--line);
-  border-radius:12px;background:rgba(19,14,25,.72);color:#e8d8f2;font-size:11px;font-weight:850
+  display:block;margin:8px 0 0 auto;padding:7px 9px;border:1px solid var(--line);
+  border-radius:11px;background:rgba(19,14,25,.72);color:#e8d8f2;font-size:10px;font-weight:850
 }
 .welcome-change:hover{border-color:#705b81;background:#251d30}
+.kanade-room-actions{
+  min-height:68px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  margin-top:16px
+}
 .deck-lab-title-wrap{text-align:center;margin:0 0 15px}
 .deck-lab-title{display:block;width:min(100%,620px);height:auto;margin:0 auto}
 .deck-lab-title-wrap .ver{margin-top:7px}
@@ -211,29 +222,24 @@ h1{font-size:25px;margin:8px 0 4px}
 .home-section-heading h1{font-size:20px;margin:3px 0 0}
 .welcome-pop{animation:welcomePop .3s ease}
 @keyframes welcomePop{
-  0%{opacity:.35;transform:translateY(5px) scale(.985)}
-  100%{opacity:1;transform:translateY(0) scale(1)}
+  0%{opacity:.35;transform:translateY(17px) scale(.985)}
+  100%{opacity:1;transform:translateY(12px) scale(1)}
 }
-@media(max-width:520px){
-  .home-app{padding-top:14px}
-  .home-welcome{gap:10px;margin-bottom:19px}
-  .manager-logo{border-radius:18px}
-  .welcome-card{min-height:465px;grid-template-columns:1fr;gap:4px;padding:12px}
-  .welcome-kanade{position:relative;top:-26px;width:245px;height:245px;margin-bottom:0}
-  .welcome-talk{width:calc(100% - 24px);max-width:none;justify-self:center;transform:translateX(8px)}
-  .welcome-name{font-size:11px;margin-left:3px}
-  .welcome-bubble{padding:12px 13px;border-radius:15px}
-  .welcome-bubble:before{
-    left:calc(50% - 18px);top:-12px;border:0;border-left:10px solid transparent;
-    border-right:10px solid transparent;border-bottom:12px solid #faf7fc
+@media(min-width:521px){
+  .welcome-card{
+    grid-template-columns:1fr;gap:0;padding:50px 24px 22px;
+    border-radius:23px
   }
-  .welcome-bubble p{font-size:12.5px;line-height:1.6}
-  .welcome-change{font-size:10px;padding:7px 9px;margin-top:8px}
-  .deck-lab-title-wrap{margin-bottom:12px}
-}
-@media(max-width:360px){
-  .welcome-card{min-height:430px;grid-template-columns:1fr;gap:4px}
-  .welcome-kanade{width:232px;height:232px}
-  .welcome-talk{transform:translateX(8px)}
-  .welcome-bubble p{font-size:12px}
+  .kanade-room-stage{min-height:306px;margin-bottom:20px}
+  .welcome-kanade{width:306px;height:306px}
+  .welcome-talk{max-width:660px}
+  .welcome-name{margin:0 0 7px 4px;font-size:12px}
+  .welcome-bubble{padding:16px 15px;border-radius:17px}
+  .welcome-bubble:before{
+    left:calc(50% - 10px);top:-12px;border-left-width:10px;border-right-width:10px;
+    border-bottom-width:12px
+  }
+  .welcome-bubble p{font-size:14px;line-height:1.65}
+  .welcome-change{margin-top:9px;padding:8px 11px;border-radius:12px;font-size:11px}
+  .kanade-room-actions{min-height:72px;margin-top:18px}
 }
