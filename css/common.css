@@ -259,3 +259,13 @@ h1{font-size:25px;margin:8px 0 4px}
   .hero-action-button{flex-basis:54px;width:54px;height:54px;font-size:14px}
   .hero-costume-button{top:14px;right:14px;width:36px;height:36px;font-size:16px}
 }
+@media(max-width:520px){
+  .kanade-room .hero-action-buttons{
+    display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:center;
+    width:100%
+  }
+  .kanade-room .hero-action-button{flex:0 0 48px}
+  .kanade-room .hero-costume-button{
+    position:absolute;top:12px;right:12px;left:auto;margin:0;transform:none
+  }
+}
