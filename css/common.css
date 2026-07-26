@@ -212,9 +212,22 @@ h1{font-size:25px;margin:8px 0 4px}
 }
 .welcome-change:hover{border-color:#705b81;background:#251d30}
 .kanade-room-actions{
-  min-height:68px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:68px;display:flex;align-items:center;justify-content:center;
   margin-top:16px
 }
+.hero-action-buttons{gap:clamp(10px,4vw,14px)}
+.hero-action-button,.hero-costume-button{
+  display:grid;place-items:center;padding:0;border:1px solid rgba(221,190,255,.42);
+  border-radius:50%;color:#f1e4f8;background:rgba(25,17,32,.78);
+  box-shadow:0 5px 13px rgba(0,0,0,.24);font-weight:900
+}
+.hero-action-button{flex:0 0 48px;width:48px;height:48px;font-size:13px}
+.hero-costume-button{
+  position:absolute;z-index:2;top:12px;right:12px;width:34px;height:34px;
+  color:#d8c5e4;background:rgba(25,17,32,.62);font-size:15px;opacity:.82
+}
+.hero-action-button:hover{border-color:#d1a9ff;background:rgba(47,32,60,.9)}
+.hero-costume-button:hover{opacity:1;border-color:rgba(221,190,255,.65)}
 .deck-lab-title-wrap{text-align:center;margin:0 0 15px}
 .deck-lab-title{display:block;width:min(100%,620px);height:auto;margin:0 auto}
 .deck-lab-title-wrap .ver{margin-top:7px}
@@ -243,4 +256,6 @@ h1{font-size:25px;margin:8px 0 4px}
   .welcome-bubble p{font-size:14px;line-height:1.65}
   .welcome-change{margin-top:9px;padding:8px 11px;border-radius:12px;font-size:11px}
   .kanade-room-actions{min-height:72px;margin-top:18px}
+  .hero-action-button{flex-basis:54px;width:54px;height:54px;font-size:14px}
+  .hero-costume-button{top:14px;right:14px;width:36px;height:36px;font-size:16px}
 }
