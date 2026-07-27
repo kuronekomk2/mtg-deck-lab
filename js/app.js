@@ -68,7 +68,7 @@
 
   function setupWelcome() {
     showRandomWelcome();
-    $("#changeWelcome")?.addEventListener("click", showRandomWelcome);
+    $("#heroWelcomeButton")?.addEventListener("click", showRandomWelcome);
   }
 
   function showRandomWelcome() {
