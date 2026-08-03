@@ -11,6 +11,65 @@
     "kanade_success.png"
   ];
 
+  const dailyGuidanceCards = [
+    {
+      id: "hope",
+      image: "hope_mana_card.png",
+      title: "希望のマナ",
+      theme: "前向き",
+      result: "明るい方へ",
+      comment: "今日は少しだけ前向きな選択をしてみよう！小さな希望でも、ちゃんと次につながっていくよ♪"
+    },
+    {
+      id: "growth",
+      image: "growth_mana_card.png",
+      title: "成長のマナ",
+      theme: "積み重ね",
+      result: "焦らず一歩ずつ",
+      comment: "今日は焦らなくても大丈夫！昨日より少しだけ前へ進めたら十分だよ♪"
+    },
+    {
+      id: "wisdom",
+      image: "wisdom_mana_card.png",
+      title: "知恵のマナ",
+      theme: "冷静",
+      result: "一度考えてみよう",
+      comment: "今日は勢いよりも、少し立ち止まって考えるのが良さそう。落ち着けば、きっと答えが見えてくるよ♪"
+    },
+    {
+      id: "passion",
+      image: "passion_mana_card.png",
+      title: "情熱のマナ",
+      theme: "挑戦",
+      result: "勢いを信じて",
+      comment: "今日は気持ちが動いた方へ進んでみよう！やってみたいと思った瞬間が、始めどきかもしれないよ♪"
+    },
+    {
+      id: "decision",
+      image: "decision_mana_card.png",
+      title: "決断のマナ",
+      theme: "覚悟",
+      result: "迷いを手放そう",
+      comment: "今日は何かを決める日に向いていそう。完璧な答えじゃなくても、自分で選んだ一歩には意味があるよ♪"
+    },
+    {
+      id: "freedom",
+      image: "freedom_mana_card.png",
+      title: "自由のマナ",
+      theme: "柔軟",
+      result: "型にとらわれず",
+      comment: "今日はいつものやり方にこだわらなくても大丈夫。少し自由に考えると、新しい道が見つかるかも♪"
+    },
+    {
+      id: "harmony",
+      image: "harmony_mana_card.png",
+      title: "協調のマナ",
+      theme: "つながり",
+      result: "力を合わせよう",
+      comment: "今日は一人で抱え込まなくて大丈夫。誰かと話したり力を借りたりすると、いい流れが生まれそうだよ♪"
+    }
+  ];
+
   const messages = {
     morning: [
       "おはよう、くーちゃん！ 朝のひらめき、デッキに残しておこっか！",
@@ -88,6 +147,7 @@
 
     const openModal = () => {
       previouslyFocused = document.activeElement;
+      renderDailyGuidance(randomItem(dailyGuidanceCards), modal);
       modal.hidden = false;
       document.body.classList.add("modal-open");
       modal.querySelector(".guidance-modal__x")?.focus();
@@ -100,6 +160,22 @@
     modal.addEventListener("keydown", event => {
       if (event.key === "Escape") closeModal();
     });
+  }
+
+  function renderDailyGuidance(card, modal) {
+    const image = $("#guidanceCardImage", modal);
+    const name = $("#guidanceCardName", modal);
+    const theme = $("#guidanceTheme", modal);
+    const result = $("#guidanceResult", modal);
+    const comment = $("#guidanceComment", modal);
+
+    image.src = card.image;
+    image.alt = `${card.title}のカード`;
+    name.textContent = card.title;
+    theme.textContent = card.theme;
+    result.textContent = card.result;
+    comment.textContent = card.comment;
+    modal.dataset.cardId = card.id;
   }
 
   function showRandomWelcome() {

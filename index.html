@@ -69,22 +69,17 @@
     <h2 id="dailyGuidanceTitle" class="guidance-modal__title">今日の導き</h2>
 
     <div class="guidance-card">
-      <img class="guidance-card__image" src="growth_mana_card.svg" alt="芽吹く若葉とマナを描いた「成長のマナ」のカード">
+      <img id="guidanceCardImage" class="guidance-card__image" src="growth_mana_card.png" alt="成長のマナのカード">
+      <span id="guidanceCardName" class="visually-hidden">成長のマナ</span>
       <div class="guidance-card__text">
-        <div class="guidance-card__block">
-          <span>今日のテーマ</span>
-          <strong>積み重ね</strong>
-        </div>
-        <div class="guidance-card__block">
-          <span>かなでの占い結果</span>
-          <strong>焦らず一歩ずつ</strong>
-        </div>
+        <strong id="guidanceTheme" class="guidance-card__value guidance-card__value--theme">積み重ね</strong>
+        <strong id="guidanceResult" class="guidance-card__value guidance-card__value--result">焦らず一歩ずつ</strong>
       </div>
     </div>
 
     <div class="guidance-comment">
       <div class="guidance-comment__name">💜かなで</div>
-      <p>今日は焦らなくても大丈夫！<br>昨日より少しだけ前へ進めたら十分だよ♪</p>
+      <p id="guidanceComment">今日は焦らなくても大丈夫！昨日より少しだけ前へ進めたら十分だよ♪</p>
     </div>
     <button class="guidance-modal__close" type="button" data-guidance-close>閉じる</button>
   </section>
