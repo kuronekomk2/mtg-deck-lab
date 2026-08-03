@@ -1,0 +1,102 @@
+.life-page{
+  min-width:0;min-height:100dvh;overflow-x:hidden;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(197,156,255,.2),transparent 38%),
+    var(--bg)
+}
+.life-app{width:min(100%,560px);min-height:100dvh;margin:0 auto;padding:12px 12px max(14px,env(safe-area-inset-bottom))}
+.life-mode-select{min-height:calc(100dvh - 26px);display:grid;place-items:center}
+.life-mode-panel{
+  width:100%;padding:24px 18px 20px;border:1px solid var(--line);border-radius:24px;
+  background:linear-gradient(150deg,#2a2035,#19131f);text-align:center;
+  box-shadow:0 18px 45px rgba(0,0,0,.34)
+}
+.life-mode-kanade{display:block;width:105px;height:112px;margin:-8px auto 2px;object-fit:contain;object-position:center bottom}
+.life-mode-panel h1{margin:0 0 20px;font-size:22px}
+.life-mode-buttons{display:grid;gap:12px}
+.life-mode-button{
+  min-height:82px;padding:12px;border:1px solid #79628b;border-radius:18px;
+  background:linear-gradient(135deg,#3a2b49,#251c30);color:var(--text)
+}
+.life-mode-button--commander{background:linear-gradient(135deg,#714897,#9b467c)}
+.life-mode-button strong,.life-mode-button span{display:block}
+.life-mode-button strong{font-size:21px}.life-mode-button span{margin-top:4px;color:#d8ccdf;font-size:12px;font-weight:750}
+.life-mode-home{display:inline-block;margin-top:18px;padding:8px 11px;color:var(--muted);font-size:12px;text-decoration:none}
+.life-counter{min-width:0}
+.life-counter[hidden],.life-mode-select[hidden],.commander-section[hidden]{display:none}
+.life-topbar{height:34px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.life-home-link{
+  padding:6px 9px;border:1px solid var(--line);border-radius:10px;background:var(--panel);
+  color:var(--muted);font-size:11px;font-weight:850;text-decoration:none
+}
+.life-mode-label{color:#aa98b5;font-size:10px;font-weight:850}
+.life-guide{
+  min-width:0;height:82px;display:grid;grid-template-columns:72px minmax(0,1fr);align-items:center;
+  gap:8px;margin:7px 0 4px
+}
+.life-kanade-button{width:72px;height:82px;padding:0;border:0;background:transparent}
+.life-kanade-button img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+.life-guide-copy{position:relative;min-width:0;padding:10px 11px;border-radius:14px;background:#faf7fc;color:#291d31}
+.life-guide-copy:before{
+  content:"";position:absolute;left:-8px;top:32px;border-top:7px solid transparent;
+  border-bottom:7px solid transparent;border-right:9px solid #faf7fc
+}
+.life-guide-name{margin-bottom:3px;color:#775492;font-size:10px;font-weight:900}
+.life-guide-copy p{margin:0;font-size:12px;font-weight:850;line-height:1.45}
+.life-main-counter{text-align:center}
+.life-initial{color:var(--muted);font-size:11px;font-weight:800}
+.life-total{
+  display:block;margin:-3px 0 -1px;font-size:clamp(72px,23vw,112px);line-height:1;
+  font-weight:950;letter-spacing:-.05em;color:#fff;text-shadow:0 4px 22px rgba(197,156,255,.28)
+}
+.life-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.life-change{
+  min-height:66px;border:1px solid #765f87;border-radius:18px;color:#fff;
+  font-size:29px;font-weight:950;touch-action:manipulation
+}
+.life-change--minus{background:linear-gradient(145deg,#49384f,#2e2537)}
+.life-change--plus{background:linear-gradient(145deg,#8b55b6,#b74e8b)}
+.commander-section{margin-top:11px;padding-top:9px;border-top:1px solid var(--line)}
+.commander-section h2{margin:0 0 7px;color:#d7c8df;font-size:13px;text-align:center}
+.commander-list{display:grid;gap:6px}
+.commander-row{
+  min-width:0;display:grid;grid-template-columns:minmax(86px,1fr) 42px 112px;align-items:center;
+  gap:6px;min-height:54px;padding:6px 7px;border:1px solid var(--line);border-radius:14px;background:var(--panel)
+}
+.commander-opponent{min-width:0;font-size:13px;font-weight:900}
+.commander-total{text-align:center;font-size:27px;font-weight:950;font-variant-numeric:tabular-nums}
+.commander-controls{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.commander-controls button{
+  min-width:0;min-height:40px;padding:0;border:1px solid #655370;border-radius:11px;
+  background:#31273a;color:#fff;font-size:16px;font-weight:950;touch-action:manipulation
+}
+.commander-danger-label{display:none;margin-top:2px;color:#ffb9c7;font-size:9px;line-height:1.1}
+.commander-row.is-danger{border-color:#db637c;background:#3b1d29}
+.commander-row.is-danger .commander-total{color:#ff879f}
+.commander-row.is-danger .commander-danger-label{display:block}
+.life-reset{
+  display:block;width:min(100%,220px);min-height:43px;margin:11px auto 0;border:1px solid #5a485f;
+  border-radius:13px;background:#251d2b;color:#cfc2d5;font-size:13px;font-weight:900
+}
+@media(max-width:350px){
+  .life-app{padding-inline:8px}
+  .commander-row{grid-template-columns:minmax(76px,1fr) 36px 104px;padding-inline:5px}
+  .commander-controls{gap:4px}
+}
+@media(max-height:700px){
+  .life-app{padding-top:7px}
+  .life-guide{height:70px;margin-top:3px}
+  .life-kanade-button{width:64px;height:70px}
+  .life-guide-copy p{font-size:11px}
+  .life-total{font-size:68px}
+  .life-change{min-height:55px}
+  .commander-section{margin-top:7px;padding-top:6px}
+  .commander-list{gap:4px}
+  .commander-row{min-height:47px;padding-block:3px}
+  .commander-controls button{min-height:37px}
+  .life-reset{min-height:39px;margin-top:7px}
+}
+@media(min-width:700px){
+  .life-app{padding-top:24px}
+  .life-counter{padding:12px 28px 24px;border:1px solid var(--line);border-radius:24px;background:rgba(29,23,38,.68)}
+}
