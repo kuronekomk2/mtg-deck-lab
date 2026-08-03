@@ -69,6 +69,37 @@
   function setupWelcome() {
     showRandomWelcome();
     $("#heroWelcomeButton")?.addEventListener("click", showRandomWelcome);
+    setupDailyGuidance();
+  }
+
+  function setupDailyGuidance() {
+    const openButton = $("#dailyGuidanceButton");
+    const modal = $("#dailyGuidanceModal");
+    if (!openButton || !modal) return;
+
+    let previouslyFocused = null;
+
+    const closeModal = () => {
+      if (modal.hidden) return;
+      modal.hidden = true;
+      document.body.classList.remove("modal-open");
+      previouslyFocused?.focus();
+    };
+
+    const openModal = () => {
+      previouslyFocused = document.activeElement;
+      modal.hidden = false;
+      document.body.classList.add("modal-open");
+      modal.querySelector(".guidance-modal__x")?.focus();
+    };
+
+    openButton.addEventListener("click", openModal);
+    modal.querySelectorAll("[data-guidance-close]").forEach(node => {
+      node.addEventListener("click", closeModal);
+    });
+    modal.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeModal();
+    });
   }
 
   function showRandomWelcome() {
