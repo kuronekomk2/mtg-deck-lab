@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700" role="img" aria-labelledby="title desc">
+  <title id="title">成長のマナ</title>
+  <desc id="desc">緑の光に包まれて芽吹く若葉を描いたカード背景</desc>
+  <defs>
+    <radialGradient id="sky" cx="50%" cy="38%" r="72%">
+      <stop offset="0" stop-color="#d8d88d"/>
+      <stop offset=".34" stop-color="#63865b"/>
+      <stop offset="1" stop-color="#18271e"/>
+    </radialGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#324f32"/>
+      <stop offset="1" stop-color="#101b15"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="12"/></filter>
+  </defs>
+  <rect width="500" height="700" rx="30" fill="url(#sky)"/>
+  <circle cx="250" cy="295" r="92" fill="#fff7b5" opacity=".28" filter="url(#glow)"/>
+  <g fill="#d9ee9c" opacity=".72">
+    <circle cx="82" cy="185" r="5"/><circle cx="420" cy="225" r="7"/><circle cx="145" cy="305" r="4"/>
+    <circle cx="366" cy="133" r="4"/><circle cx="303" cy="245" r="5"/><circle cx="55" cy="370" r="3"/>
+  </g>
+  <path d="M0 510 Q120 455 245 520 T500 495 V700 H0Z" fill="url(#ground)"/>
+  <path d="M250 573 C247 496 250 431 252 344" fill="none" stroke="#b8d887" stroke-width="10" stroke-linecap="round"/>
+  <path d="M251 430 C187 426 151 390 139 341 C196 337 238 369 251 430Z" fill="#86b85f" stroke="#cfdf8b" stroke-width="4"/>
+  <path d="M252 392 C304 386 345 350 359 305 C301 304 265 337 252 392Z" fill="#9ac96e" stroke="#e0e99c" stroke-width="4"/>
+  <path d="M252 502 C303 493 334 468 349 434 C299 429 268 454 252 502Z" fill="#5f914d" stroke="#accb78" stroke-width="3"/>
+  <path d="M21 25 H479 V675 H21Z" fill="none" stroke="#d7ca8c" stroke-width="5" opacity=".7" rx="22"/>
+  <path d="M36 40 H464 V660 H36Z" fill="none" stroke="#f1e3a5" stroke-width="1" opacity=".45" rx="16"/>
+</svg>

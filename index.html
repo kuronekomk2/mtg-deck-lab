@@ -29,7 +29,7 @@
       </div>
       <div class="kanade-room-actions hero-action-buttons" aria-label="かなでの部屋メニュー（仮配置）">
         <button id="heroWelcomeButton" class="hero-action-button" type="button" aria-label="かなでのひとことを変える"><img src="icon_hitokoto.png" alt=""></button>
-        <button class="hero-action-button" type="button" aria-label="今日の1枚（仮配置）"><img src="icon_kyouno1mai.png" alt=""></button>
+        <button id="dailyGuidanceButton" class="hero-action-button" type="button" aria-label="今日の導きを開く" aria-haspopup="dialog"><img src="icon_kyouno1mai.png" alt=""></button>
         <button class="hero-action-button" type="button" aria-label="ライフカウンター（仮配置）"><img src="icon_life.png" alt=""></button>
         <button class="hero-action-button" type="button" aria-label="対戦記録（仮配置）"><img src="icon_taisen.png" alt=""></button>
       </div>
@@ -55,10 +55,39 @@
   </section>
 
   <footer class="home-footer" aria-label="アプリ情報">
-    <div class="footer-version" id="appVersion">Ver.4.0 RC1.3 Final</div>
+    <div class="footer-version" id="appVersion">Ver.4.1</div>
     <div class="footer-made">Made with ❤️ by</div>
     <div class="footer-name">宙星かなで</div>
   </footer>
+</div>
+
+<div id="dailyGuidanceModal" class="guidance-modal" hidden>
+  <div class="guidance-modal__backdrop" data-guidance-close></div>
+  <section class="guidance-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="dailyGuidanceTitle">
+    <button class="guidance-modal__x" type="button" aria-label="今日の導きを閉じる" data-guidance-close>×</button>
+    <div class="guidance-modal__eyebrow">DAILY GUIDANCE</div>
+    <h2 id="dailyGuidanceTitle" class="guidance-modal__title">今日の導き</h2>
+
+    <div class="guidance-card">
+      <img class="guidance-card__image" src="growth_mana_card.svg" alt="芽吹く若葉とマナを描いた「成長のマナ」のカード">
+      <div class="guidance-card__text">
+        <div class="guidance-card__block">
+          <span>今日のテーマ</span>
+          <strong>積み重ね</strong>
+        </div>
+        <div class="guidance-card__block">
+          <span>かなでの占い結果</span>
+          <strong>焦らず一歩ずつ</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="guidance-comment">
+      <div class="guidance-comment__name">💜かなで</div>
+      <p>今日は焦らなくても大丈夫！<br>昨日より少しだけ前へ進めたら十分だよ♪</p>
+    </div>
+    <button class="guidance-modal__close" type="button" data-guidance-close>閉じる</button>
+  </section>
 </div>
 
 <script src="js/app.js" defer></script>
