@@ -275,3 +275,69 @@ h1{font-size:25px;margin:8px 0 4px}
     object-fit:contain
   }
 }
+
+/* =========================================================
+   Today's guidance modal / Ver.4.1
+   ========================================================= */
+body.modal-open{overflow:hidden}
+.guidance-modal{
+  position:fixed;z-index:100;inset:0;display:grid;place-items:center;padding:18px;
+  overflow-y:auto
+}
+.guidance-modal[hidden]{display:none}
+.guidance-modal__backdrop{position:fixed;inset:0;background:rgba(7,5,10,.76)}
+.guidance-modal__dialog{
+  position:relative;width:min(100%,390px);max-height:calc(100dvh - 36px);overflow-y:auto;
+  padding:24px 18px 18px;border:1px solid #665276;border-radius:24px;
+  background:linear-gradient(155deg,#2b2036,#19131f 58%);color:var(--text);
+  box-shadow:0 24px 70px rgba(0,0,0,.58)
+}
+.guidance-modal__x{
+  position:absolute;top:10px;right:10px;display:grid;place-items:center;width:38px;height:38px;
+  padding:0;border:1px solid var(--line);border-radius:50%;background:#17101e;color:#e7dced;
+  font-size:25px;line-height:1
+}
+.guidance-modal__eyebrow{text-align:center;color:var(--accent);font-size:9px;font-weight:900;letter-spacing:.2em}
+.guidance-modal__title{margin:4px 42px 15px;text-align:center;font-size:22px}
+.guidance-card{
+  position:relative;width:min(100%,280px);aspect-ratio:5/7;margin:0 auto;overflow:hidden;
+  border:1px solid rgba(231,218,170,.52);border-radius:18px;background:#17251e;
+  box-shadow:0 13px 28px rgba(0,0,0,.42)
+}
+.guidance-card__image{display:block;width:100%;height:100%;object-fit:cover}
+.guidance-card__text{
+  position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;
+  padding:24px 18px 22px;text-align:center
+}
+.guidance-card__block{
+  padding:10px 8px;border:1px solid rgba(238,229,194,.42);border-radius:12px;
+  background:rgba(14,22,18,.76);box-shadow:0 4px 12px rgba(0,0,0,.25);
+  backdrop-filter:blur(3px)
+}
+.guidance-card__block span{display:block;color:#e8ddbd;font-size:10px;font-weight:850;letter-spacing:.08em}
+.guidance-card__block strong{display:block;margin-top:4px;color:#fffdf4;font-size:18px;line-height:1.35}
+.guidance-comment{
+  width:min(100%,320px);margin:15px auto 13px;padding:13px 14px;border:1px solid var(--line);
+  border-radius:15px;background:#faf7fc;color:#291d31
+}
+.guidance-comment__name{margin-bottom:5px;color:#765093;font-size:12px;font-weight:900}
+.guidance-comment p{margin:0;font-size:13px;font-weight:800;line-height:1.65}
+.guidance-modal__close{
+  display:block;width:min(100%,320px);min-height:46px;margin:0 auto;border:1px solid #916bbe;
+  border-radius:14px;background:linear-gradient(135deg,#7549a1,#a84c83);color:#fff;
+  font-weight:900;box-shadow:0 6px 14px rgba(0,0,0,.24)
+}
+.guidance-modal__x:focus-visible,.guidance-modal__close:focus-visible{
+  outline:3px solid #ead7ff;outline-offset:2px
+}
+@media(max-width:380px){
+  .guidance-modal{padding:10px}
+  .guidance-modal__dialog{max-height:calc(100dvh - 20px);padding:20px 13px 14px;border-radius:20px}
+  .guidance-modal__title{font-size:20px;margin-bottom:11px}
+  .guidance-card{width:min(100%,238px)}
+  .guidance-card__text{padding:18px 14px}
+  .guidance-card__block{padding:7px}
+  .guidance-card__block strong{font-size:16px}
+  .guidance-comment{margin-top:11px;padding:10px 12px}
+  .guidance-comment p{font-size:12px}
+}
